@@ -7,6 +7,7 @@ import {
   FileText,
   WhatsappLogo,
   CheckCircle,
+  MapPin,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -14,26 +15,26 @@ export const CareFlow: React.FC = () => {
   const steps = [
     {
       number: "01",
-      title: "Solicitá tu Turno Ágil",
-      description: "Escribinos directamente al WhatsApp (+54 9 351 427-6240) o llamá a Sede Central al (0351) 424-0527. Seleccionamos el especialista adecuado según tu síntoma.",
+      title: "Solicitá tu Turno Previo",
+      description: "Escribinos directamente al WhatsApp (+54 9 351 817-4000 / 0351 158-174000) o llamá a Pedro Goyena al (0351) 465-0036.",
       icon: WhatsappLogo,
     },
     {
       number: "02",
-      title: "Confirmación y Horario Puntual",
-      description: "Recibís la confirmación con fecha, hora exacta y sede (Alvear 81 o Sarmiento 480). Protocolo escalonado para evitar demoras en sala de espera.",
-      icon: CalendarCheck,
+      title: "Elegí el Consultorio",
+      description: "Coordiná tu visita en el Consultorio Particular de Pedro Goyena 1437 (Barrio Los Naranjos) o en Centro Médico Las Flores según tu cercanía.",
+      icon: MapPin,
     },
     {
       number: "03",
-      title: "Consulta Médica Humanizada",
-      description: "Tu médico te escucha con dedicación, realiza el examen clínico correspondiente y responde todas tus dudas en un ambiente confortable.",
+      title: "Consulta Médica Dedicada",
+      description: "La Dra. Norma Ramírez te recibe con tiempo y calidez, realiza el examen clínico correspondiente y evalúa tu salud de forma integral.",
       icon: Stethoscope,
     },
     {
       number: "04",
-      title: "Estudios, Recetas y Seguimiento",
-      description: "Resolvé ecografías, electrocardiograma o análisis en nuestras sedes. Te brindamos recetas oficiales y seguimiento cercano de tu evolución.",
+      title: "Recetas, Estudios y Seguimiento",
+      description: "Indicación de tratamiento con recetario oficial, solicitud de estudios pertinentes y coordinación de controles periódicos.",
       icon: FileText,
     },
   ];
@@ -49,7 +50,7 @@ export const CareFlow: React.FC = () => {
             Tu consulta médica organizada, simple y sin demoras
           </h2>
           <p className="text-sm sm:text-base text-charcoal-secondary mt-3">
-            Cuidamos cada etapa de tu visita en Córdoba Capital, combinando agilidad tecnológica y calidez humana.
+            Atención clínica pensada para brindarte tranquilidad, previsibilidad y un trato profesional cercano en Córdoba Capital.
           </p>
         </div>
 
@@ -92,4 +93,5 @@ export const CareFlow: React.FC = () => {
     </section>
   );
 };
+
 

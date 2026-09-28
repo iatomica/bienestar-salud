@@ -25,7 +25,7 @@ export const Coverage: React.FC = () => {
   const currentOS = OBRAS_SOCIALES.find((os) => os.id === selectedOS) || OBRAS_SOCIALES[0];
 
   const whatsappInquiryUrl = `https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(
-    `Hola Bienestar Salud, quisiera consultar la cobertura y requisitos para atenderme con mi obra social ${currentOS.name}.`
+    `Hola Dra. Norma Ramírez, quisiera consultar la cobertura y requisitos para atenderme con mi obra social ${currentOS.name}.`
   )}`;
 
   return (
@@ -38,10 +38,10 @@ export const Coverage: React.FC = () => {
             Convenios y Obras Sociales Aceptadas
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal mt-1">
-            Atendemos las principales obras sociales y prepagas
+            Atención por obras sociales, prepagas y particulares
           </h2>
           <p className="text-sm sm:text-base text-charcoal-secondary mt-3">
-            Trabajamos con convenios directos (APROSS, OSDE, Swiss Medical, Galeno, etc.) y reintegros ágiles para que puedas acceder a atención médica en Córdoba sin trámites engorrosos.
+            Atendemos pacientes con las principales coberturas de Córdoba (APROSS, OSDE, Swiss Medical, Galeno, Sancor Salud, Medifé, PAMI) y consultas particulares con aranceles accesibles y factura para reintegro.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export const Coverage: React.FC = () => {
             <MagnifyingGlass size={18} className="absolute left-4 top-3.5 text-charcoal-muted" />
             <input
               type="text"
-              placeholder="Buscá tu obra social o prepaga (ej. OSDE, Swiss Medical, Medifé...)"
+              placeholder="Buscá tu obra social o prepaga (ej. APROSS, OSDE, Swiss Medical, Medifé...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-11 pr-4 py-3 rounded-xl border border-surface-muted bg-surface-subtle/50 text-sm text-charcoal focus-visible:ring-2 focus-visible:ring-petrol-600 focus-visible:outline-none transition-all"
@@ -98,7 +98,7 @@ export const Coverage: React.FC = () => {
                   <h3 className="text-lg font-bold text-charcoal">{currentOS.name}</h3>
                   <span className="text-xs text-emerald-700 font-medium flex items-center gap-1">
                     <CheckCircle size={14} weight="fill" />
-                    Convenio activo en consultorio
+                    Atención médica con turno programado
                   </span>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export const Coverage: React.FC = () => {
                 className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition-all"
               >
                 <WhatsappLogo size={16} weight="fill" />
-                <span>Validar mi plan por WhatsApp</span>
+                <span>Consultar por WhatsApp</span>
                 <ArrowRight size={13} />
               </a>
             </div>
@@ -118,28 +118,28 @@ export const Coverage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
               <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
                 <span className="font-semibold text-charcoal block mb-1">
-                  Atención Primaria & Limpieza
+                  Consulta Médica Clínica
                 </span>
                 <p className="text-charcoal-muted leading-relaxed">
-                  Diagnóstico general, profilaxis ultrasónica, inactivación de caries y radiografías de control.
+                  Examen clínico general, control de presión arterial, glucemia, evaluación de síntomas agudos y seguimiento de patologías crónicas.
                 </p>
               </div>
 
               <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
                 <span className="font-semibold text-charcoal block mb-1">
-                  Especialidades & Complejidad
+                  Estudios & Recetarios Oficiales
                 </span>
                 <p className="text-charcoal-muted leading-relaxed">
-                  Endodoncia, periodoncia, ortodoncia e implantes según el plan y módulo contratado en {currentOS.name}.
+                  Solicitud de análisis de laboratorio, electrocardiograma, ecografías y prescripción de medicamentos con recetario oficial.
                 </p>
               </div>
 
               <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
                 <span className="font-semibold text-charcoal block mb-1">
-                  ¿Qué documentación traer?
+                  Documentación para la Consulta
                 </span>
                 <p className="text-charcoal-muted leading-relaxed">
-                  Credencial digital en el celular + DNI. Gestionamos la autorización en recepción para tu comodidad.
+                  DNI + credencial física o digital en el celular. Para consultas particulares emitimos factura para reintegro inmediato.
                 </p>
               </div>
             </div>
@@ -147,7 +147,7 @@ export const Coverage: React.FC = () => {
             <div className="pt-2 flex items-center gap-2 text-[11px] text-charcoal-muted">
               <Info size={14} className="text-petrol-600 shrink-0" />
               <span>
-                ¿Tenés otra cobertura o consulta particular? También emitimos factura electrónica para reintegros inmediatos.
+                ¿Dudas sobre aranceles o autorizaciones previas? Escribinos por WhatsApp al (0351) 158-174000 y te asesoramos al instante.
               </span>
             </div>
           </div>
@@ -156,4 +156,5 @@ export const Coverage: React.FC = () => {
     </section>
   );
 };
+
 

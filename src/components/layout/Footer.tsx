@@ -8,7 +8,7 @@ import {
   Clock,
   WhatsappLogo,
   ShieldCheck,
-  FirstAid,
+  Stethoscope,
 } from "@phosphor-icons/react";
 
 export const Footer: React.FC = () => {
@@ -19,13 +19,13 @@ export const Footer: React.FC = () => {
           {/* Column 1 & 2: Brand info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-petrol-900 p-1 border border-petrol-700 shrink-0">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden bg-petrol-900 border-2 border-petrol-600 shrink-0">
                 <Image
-                  src="/images/logo.webp"
-                  alt="Logo Bienestar Salud"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
+                  src="/images/dra_norma_ramirez.webp"
+                  alt="Dra. Norma Ramírez"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div>
@@ -33,13 +33,13 @@ export const Footer: React.FC = () => {
                   {clinicConfig.name}
                 </span>
                 <span className="text-xs text-cyan-300 font-medium">
-                  {clinicConfig.tagline}
+                  Médica Clínica · Medicina General & Adultos
                 </span>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              Policonsultorio de especialidades médicas en Córdoba Capital. Atención integral para toda la familia con sistema de turnos programados para evitar demoras en sala.
+              Atención médica clínica personalizada en Córdoba Capital. Enfoque preventivo, seguimiento de enfermedades crónicas y turnos programados en Pedro Goyena 1437 y Centro Médico Las Flores.
             </p>
 
             <div className="flex items-center gap-3 pt-1">
@@ -51,17 +51,17 @@ export const Footer: React.FC = () => {
                 aria-label="WhatsApp"
               >
                 <WhatsappLogo size={18} weight="fill" />
-                <span>WhatsApp: +54 9 351 427-6240</span>
+                <span>WhatsApp: (0351) 158-174000</span>
               </a>
             </div>
 
             <div className="p-3 bg-teal-950/60 rounded-xl border border-teal-800/40 text-[11px] text-slate-300 space-y-1">
               <div className="font-semibold text-cyan-200 flex items-center gap-1.5">
                 <ShieldCheck size={14} className="text-emerald-400" />
-                <span>Atención con Matrículas Oficiales Habilitadas</span>
+                <span>Matrícula Provincial Habilitada · MP Córdoba</span>
               </div>
               <p className="text-slate-400 text-[10px] leading-tight">
-                Profesionales certificados por el Consejo de Médicos de la Provincia de Córdoba.
+                Certificada por el Consejo de Médicos de la Provincia de Córdoba.
               </p>
             </div>
           </div>
@@ -69,101 +69,89 @@ export const Footer: React.FC = () => {
           {/* Column 3: Specialties */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-100">
-              Especialidades
+              Servicios Clínicos
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Clínica Médica & General
+                  Chequeos Clínicos Integrales
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Cardiología & ECG
+                  Hipertensión & Riesgo Cardíaco
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Pediatría & Salud Infantil
+                  Control de Diabetes & Lípidos
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Traumatología & Ortopedia
+                  Aptos Físicos Oficiales
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Ginecología & Obstetricia
+                  Valoración Preoperatoria
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Kinesiología & Fisioterapia
+                  Atención del Adulto Mayor
                 </Link>
               </li>
               <li>
                 <Link href="#especialidades" className="hover:text-white transition-colors">
-                  Diagnóstico & Ecografías
+                  Cuadros Clínicos Agudos
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Sede Central Alvear */}
+          {/* Column 4: Consultorio Los Naranjos */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-100">
-              Sede Central (Alvear)
+              Consultorio Los Naranjos
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400">
               <a
-                href="https://maps.google.com/?q=Gral.+Alvear+81,+Cordoba+Capital"
+                href="https://maps.google.com/?q=Pedro+Goyena+1437,+Cordoba+Capital"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2 hover:text-white transition-colors"
               >
                 <MapPin size={16} className="text-cyan-400 shrink-0 mt-0.5" />
-                <span>Gral. Alvear 81, X5021EAA Córdoba</span>
+                <span>Pedro Goyena 1437, Barrio Los Naranjos, Córdoba</span>
               </a>
               <a
-                href="tel:+543514240527"
+                href="tel:+543514650036"
                 className="flex items-center gap-2 hover:text-white transition-colors font-medium text-slate-200"
               >
                 <Phone size={16} className="text-cyan-400 shrink-0" />
-                <span>Tel: (0351) 424-0527</span>
+                <span>Teléfono: (0351) 465-0036</span>
               </a>
               <div className="flex items-start gap-2 pt-1 border-t border-teal-900/40 text-[11px]">
                 <Clock size={15} className="text-slate-400 shrink-0 mt-0.5" />
-                <span>Lunes a Viernes 08:00 a 20:00 hs</span>
+                <span>Lunes a Viernes (Con turno previo)</span>
               </div>
               <p className="text-[10px] text-slate-400">
-                Clínica Médica, Pediatría, Kinesiología y Laboratorio.
+                Consultorio particular para atención integral y personalizada.
               </p>
             </div>
           </div>
 
-          {/* Column 5: Sede Especialidades Sarmiento */}
+          {/* Column 5: Centro Médico Las Flores */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-100">
-              Sede Especialidades (Sarmiento)
+              Centro Médico Las Flores
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400">
-              <a
-                href="https://maps.google.com/?q=Domingo+F.+Sarmiento+480,+Cordoba+Capital"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-2 hover:text-white transition-colors"
-              >
+              <div className="flex items-start gap-2 text-slate-300">
                 <MapPin size={16} className="text-cyan-400 shrink-0 mt-0.5" />
-                <span>Domingo F. Sarmiento 480, X5000EYJ</span>
-              </a>
-              <a
-                href="tel:+543514276240"
-                className="flex items-center gap-2 hover:text-white transition-colors font-medium text-slate-200"
-              >
-                <Phone size={16} className="text-cyan-400 shrink-0" />
-                <span>Tel: (0351) 427-6240</span>
-              </a>
+                <span>Centro Médico Las Flores, Córdoba</span>
+              </div>
               <a
                 href={clinicConfig.whatsappUrl}
                 target="_blank"
@@ -171,11 +159,20 @@ export const Footer: React.FC = () => {
                 className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
               >
                 <WhatsappLogo size={16} weight="fill" className="shrink-0" />
-                <span>WhatsApp: +54 9 351 427-6240</span>
+                <span>WhatsApp: (0351) 158-174000</span>
+              </a>
+              <a
+                href={clinicConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-cyan-300 hover:text-white transition-colors font-medium"
+              >
+                <Phone size={16} className="text-cyan-400 shrink-0" />
+                <span>Consultas: +54 9 351 817-4000</span>
               </a>
               <div className="flex items-start gap-2 pt-1 border-t border-teal-900/40 text-[11px]">
                 <Clock size={15} className="text-slate-400 shrink-0 mt-0.5" />
-                <span>Lunes a Viernes 08:00 a 19:30 hs</span>
+                <span>Días y horarios coordinados por turno</span>
               </div>
             </div>
           </div>
@@ -183,9 +180,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 {clinicConfig.name}. Todos los derechos reservados.</p>
+          <p>© 2026 Dra. Norma Ramírez. Todos los derechos reservados.</p>
           <div className="flex items-center gap-4 text-[11px]">
-            <span>Gral. Alvear 81 · Domingo F. Sarmiento 480</span>
+            <span>Pedro Goyena 1437 (Los Naranjos) · Centro Médico Las Flores</span>
             <span>·</span>
             <span>Córdoba Capital, Argentina</span>
           </div>
@@ -194,4 +191,5 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+
 

@@ -32,13 +32,13 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-wider text-petrol-700 flex items-center gap-1.5">
               <Sparkle size={14} weight="fill" className="text-petrol-600" />
-              Especialidades Médicas & Policonsultorio
+              Áreas de Atención Médica & Servicios Clínicos
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal mt-1">
-              Atención médica interdisciplinaria para toda la familia
+              Atención clínica integral para adultos con la Dra. Norma Ramírez
             </h2>
             <p className="text-sm sm:text-base text-charcoal-secondary mt-3 leading-relaxed">
-              Consultas ambulatorias, estudios diagnósticos y seguimiento clínico con turnos programados en nuestras dos sedes de Córdoba (Alvear 81 y Sarmiento 480).
+              Consultas programadas, chequeos preventivos y seguimiento continuo en consultorio particular de Barrio Los Naranjos (Pedro Goyena 1437) y Centro Médico Las Flores, Córdoba.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
                   : "bg-surface text-charcoal-secondary border border-surface-muted hover:border-slate-300"
               }`}
             >
-              Todas las áreas ({SPECIALTIES.length})
+              Todos los servicios ({SPECIALTIES.length})
             </button>
             <button
               type="button"
@@ -64,7 +64,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
                   : "bg-surface text-charcoal-secondary border border-surface-muted hover:border-slate-300"
               }`}
             >
-              Especialidades principales
+              Servicios frecuentes
             </button>
           </div>
         </div>
@@ -72,7 +72,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
         {/* Specialties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSpecialties.map((spec) => {
-            const whatsappText = `Hola Bienestar Salud, quisiera solicitar un turno para la especialidad de ${spec.name}.`;
+            const whatsappText = `Hola Dra. Norma Ramírez, quisiera solicitar un turno para ${spec.name}.`;
             const whatsappLink = `https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(whatsappText)}`;
 
             return (
@@ -93,7 +93,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
                     </span>
                     {spec.featured && (
                       <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        Destacado
+                        Frecuente
                       </span>
                     )}
                   </div>
@@ -143,4 +143,5 @@ export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) =
     </section>
   );
 };
+
 

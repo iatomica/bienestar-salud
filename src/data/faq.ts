@@ -5,36 +5,33 @@ export interface FAQItem {
 
 export const faqData: FAQItem[] = [
   {
-    question: "¿Cómo solicito un turno médico de forma rápida?",
-    answer: "La vía más ágil y recomendada es a través de nuestro WhatsApp oficial de Especialidades Médicas (+54 9 351 427-6240). También podés comunicarte telefónicamente a la Sede Central Alvear al (0351) 424-0527 o a Sede Sarmiento al (0351) 427-6240 de lunes a viernes.",
+    question: "¿Cómo solicito un turno con la Dra. Norma Ramírez?",
+    answer: "Podés solicitar tu turno enviando un mensaje directo a nuestro WhatsApp de consultas (+54 9 351 817-4000 / 0351 158-174000) o comunicándote telefónicamente al consultorio de Pedro Goyena al (0351) 465-0036. Coordinamos el día y horario que mejor se adapte a tus necesidades.",
   },
   {
-    question: "¿Dónde están ubicadas las sedes y qué atención brinda cada una?",
-    answer: "Contamos con dos sedes céntricas en Córdoba: 1) Sede Central Alvear (Gral. Alvear 81, Centro), orientada a Clínica Médica, Pediatría, Kinesiología y análisis. 2) Sede Especialidades Médicas Sarmiento (Domingo F. Sarmiento 480), dedicada a consultas especializadas como Cardiología, Traumatología, Ginecología y ecografías.",
+    question: "¿Dónde atiende la Dra. Norma Ramírez?",
+    answer: "La doctora atiende en dos ubicaciones de Córdoba Capital: 1) Su Consultorio Particular en Pedro Goyena 1437, Barrio Los Naranjos. 2) En Centro Médico Las Flores para atención clínica programada y seguimiento ambulatorio.",
   },
   {
-    question: "¿Cómo funciona el nuevo sistema para evitar demoras en la sala de espera?",
-    answer: "Implementamos un protocolo estricto de turnos escalonados con confirmación previa vía WhatsApp. Esto permite organizar la demanda, evitar salas colmadas y asegurar que cada médico disponga del tiempo necesario para escucharte y atenderte con la calidad que merecés.",
+    question: "¿Qué tipo de atención médica y patologías atiende?",
+    answer: "La Dra. Norma Ramírez brinda atención médica integral para adultos y jóvenes: chequeos clínicos periódicos, control riguroso de hipertensión arterial y diabetes, evaluación cardiovascular básica, aptos físicos oficiales, valoración prequirúrgica y tratamiento de cuadros agudos (respiratorios, digestivos, etc.).",
   },
   {
-    question: "¿Qué obras sociales y prepagas reciben en Bienestar Salud?",
-    answer: "Atendemos las principales coberturas de Córdoba: APROSS, OSDE, Swiss Medical, Galeno, Sancor Salud, Medifé, OMINT, Prevención Salud, Nobis, DASPU, PAMI (prestadores según especialidad) y cajas profesionales. También brindamos aranceles particulares preferenciales y factura para reintegros.",
+    question: "¿Cómo es el protocolo de atención para evitar demoras?",
+    answer: "Trabajamos con un sistema de turnos programados y escalonados. Esto asegura que la doctora pueda dedicarte el tiempo necesario para escucharte, examinarte minuciosamente y responder todas tus preguntas sin las prisas habituales.",
   },
   {
-    question: "¿Necesito derivación médica previa para solicitar un turno de especialista?",
-    answer: "En la mayoría de las especialidades podés agendar tu consulta de forma directa sin necesidad de derivación previa. Si tu obra social exige orden médica o autorización específica, nuestro equipo te asesora por WhatsApp antes de asistir para que no pierdas tiempo.",
+    question: "¿Atiende por obras sociales y prepagas?",
+    answer: "Sí, se atiende con las principales obras sociales y prepagas con cobertura en Córdoba (APROSS, OSDE, Swiss Medical, Galeno, Sancor Salud, Medifé, PAMI, entre otras) y de manera particular con aranceles accesibles y emisión de factura para reintegro.",
   },
   {
-    question: "¿Qué documentación debo presentar al asistir a mi consulta?",
-    answer: "Te solicitamos concurrir con tu DNI, credencial física o digital de tu obra social/prepaga y los estudios médicos o análisis previos que tengas relacionados con el motivo de tu consulta.",
+    question: "¿Realiza aptos físicos y certificados médicos oficiales?",
+    answer: "Sí. Se realizan valoraciones clínicas completas con examen físico y electrocardiograma para otorgar certificados de aptitud física deportiva, aptos laborales, de ingreso escolar y carnet de conducir.",
   },
   {
-    question: "¿Realizan estudios diagnósticos como electrocardiograma o ecografías?",
-    answer: "Sí. Contamos con equipamiento para realizar electrocardiogramas (ECG) con informe ágil, aptos físicos deportivos, ecografías generales y laboratorio de análisis clínicos, permitiéndote resolver estudios y consulta en el mismo centro.",
-  },
-  {
-    question: "¿Cuáles son los horarios de atención de los consultorios?",
-    answer: "Nuestras sedes atienden de lunes a viernes de 08:00 a 20:00 hs de manera continua, y los sábados de 08:30 a 13:00 hs para atención ambulatoria programada y extracciones de laboratorio.",
+    question: "¿Qué documentación y estudios debo llevar a la primera consulta?",
+    answer: "Es recomendable asistir con tu DNI, credencial de obra social o prepaga, lista de medicamentos que tomás habitualmente y cualquier estudio reciente (análisis de sangre, ecografías, informes cardiológicos) que tengas a disposición.",
   },
 ];
+
 

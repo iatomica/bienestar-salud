@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   CalendarCheck,
   FirstAid,
+  Stethoscope,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -34,11 +35,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-cyan-200 text-xs font-semibold tracking-wide uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Policonsultorio de Especialidades Médicas</span>
+            <span>Dra. Norma Ramírez · Médica Clínica</span>
           </div>
 
           <span className="hidden sm:inline-block text-xs font-medium text-cyan-100/70">
-            Córdoba Capital · 2 Sedes: Alvear 81 y Sarmiento 480
+            Córdoba Capital · Pedro Goyena 1437 & Centro Médico Las Flores
           </span>
         </div>
 
@@ -48,30 +49,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-cyan-300 flex items-center gap-2">
-                <FirstAid size={18} weight="fill" className="text-cyan-300" />
-                Bienestar Salud · Servicios Médicos
+                <Stethoscope size={18} weight="fill" className="text-cyan-300" />
+                Medicina General, Clínica y Preventiva
               </span>
               <h1 className="text-3xl sm:text-5xl lg:text-[3.3rem] font-extrabold tracking-tight text-white leading-[1.08]">
-                ESPECIALIDADES MÉDICAS <br />
+                ATENCIÓN MÉDICA INTEGRAL, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-100 to-emerald-200 drop-shadow-sm">
-                  CON ATENCIÓN ÁGIL Y SIN ESPERAS
+                  CERCANA Y DEDICADA A TU SALUD
                 </span>
               </h1>
             </div>
 
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
-              Cuidamos tu salud y la de tu familia en Córdoba. Clínica médica, cardiología, pediatría, traumatología, ginecología y diagnóstico, con un sistema de turnos programados diseñado para brindarte el tiempo y respeto que merecés.
+              Cuidado clínico personalizado para jóvenes y adultos en Córdoba Capital. Chequeos preventivos periódicos, control estricto de presión arterial, seguimiento de diabetes, aptos físicos y valoración preoperatoria con el tiempo y dedicación que merecés.
             </p>
 
-            {/* Flyer-inspired Feature Badges */}
+            {/* Feature Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/8 backdrop-blur-md border border-white/10">
                 <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
                   <CheckCircle size={18} weight="fill" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white leading-tight">2 SEDES EN CBA</div>
-                  <div className="text-[11px] text-slate-300">Alvear y Sarmiento</div>
+                  <div className="text-xs font-bold text-white leading-tight">LOS NARANJOS</div>
+                  <div className="text-[11px] text-slate-300">Pedro Goyena 1437</div>
                 </div>
               </div>
 
@@ -80,8 +81,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                   <CheckCircle size={18} weight="fill" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white leading-tight">TURNOS ÁGILES</div>
-                  <div className="text-[11px] text-slate-300">Sin antesalas colmadas</div>
+                  <div className="text-xs font-bold text-white leading-tight">C. M. LAS FLORES</div>
+                  <div className="text-[11px] text-slate-300">Atención programada</div>
                 </div>
               </div>
 
@@ -90,8 +91,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                   <CheckCircle size={18} weight="fill" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white leading-tight">OBRAS SOCIALES</div>
-                  <div className="text-[11px] text-slate-300">APROSS, OSDE, Swiss, etc.</div>
+                  <div className="text-xs font-bold text-white leading-tight">TURNOS ÁGILES</div>
+                  <div className="text-[11px] text-slate-300">WhatsApp directo</div>
                 </div>
               </div>
             </div>
@@ -121,40 +122,48 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             <div className="pt-2 flex flex-wrap items-center gap-5 sm:gap-6 text-xs text-slate-300/90">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck size={16} className="text-emerald-400" />
-                Atención médica personalizada
+                Médica Clínica · MP Córdoba
               </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin size={16} className="text-cyan-300" />
-                Sede Central: Alvear 81 · Tel: (0351) 424-0527
-              </span>
-              <span className="flex items-center gap-1.5">
+              <a
+                href="tel:+543514650036"
+                className="flex items-center gap-1.5 hover:text-white transition-colors"
+              >
                 <Phone size={16} className="text-cyan-300" />
-                Sede Sarmiento 480 · Tel: (0351) 427-6240
-              </span>
+                Pedro Goyena: (0351) 465-0036
+              </a>
+              <a
+                href={clinicConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-emerald-300 hover:text-white transition-colors"
+              >
+                <WhatsappLogo size={16} weight="fill" />
+                WhatsApp: (0351) 158-174000
+              </a>
             </div>
           </div>
 
           {/* Right Column: Panoramic Medical Banner Showcase */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/15 to-white/5 p-2 backdrop-blur-md border border-white/20 shadow-2xl group">
-              <div className="relative rounded-[22px] overflow-hidden bg-[#0c373d] h-[360px] sm:h-[430px]">
-                {/* Modern High-Tech Clinic Banner Image */}
+              <div className="relative rounded-[22px] overflow-hidden bg-[#0c373d] h-[380px] sm:h-[450px]">
+                {/* Doctor Attending Patient Image */}
                 <Image
-                  src="/images/hero_medical_banner.webp"
-                  alt="Consultorios médicos de Bienestar Salud en Córdoba"
+                  src="/images/dra_norma_consulta.webp"
+                  alt="Dra. Norma Ramírez atendiendo a un paciente en su consultorio médico"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   priority
                 />
 
                 {/* Subtle gradient vignette to blend typography and cards */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
 
                 {/* Top Status Pill */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
                   <span className="px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-[11px] font-bold text-cyan-200 border border-white/15 shadow-sm flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Policonsultorio Integral
+                    Atención Médica Personalizada
                   </span>
 
                   <span className="px-2.5 py-1 rounded-full bg-white/90 text-petrol-900 text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
@@ -168,20 +177,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                     <div>
                       <div className="text-xs font-bold text-white tracking-wide flex items-center gap-1.5">
                         <MapPin size={14} className="text-cyan-400" />
-                        Dos Sedes en Córdoba Capital
+                        Dra. Norma Ramírez
                       </div>
                       <div className="text-[11px] font-medium text-slate-300 mt-0.5">
-                        Alvear 81 · Domingo F. Sarmiento 480
+                        Pedro Goyena 1437 (Los Naranjos) & Centro Médico Las Flores
                       </div>
                     </div>
                     <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 shrink-0">
-                      Turno Programado
+                      Turno Previo
                     </span>
                   </div>
 
                   <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300">
-                    <span className="text-cyan-300 font-semibold">10+ Especialidades Médicas</span>
-                    <span>APROSS · OSDE · Prepagas</span>
+                    <span className="text-cyan-300 font-semibold">Clínica Médica & General</span>
+                    <span>Obras Sociales & Particulares</span>
                   </div>
                 </div>
               </div>
@@ -195,25 +204,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="text-emerald-400 font-bold">●</span>
-            <span className="font-medium text-white">Línea directa WhatsApp de Especialidades:</span>
+            <span className="font-medium text-white">Línea directa WhatsApp para consultas y turnos:</span>
             <a
               href={clinicConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-cyan-300 hover:text-white underline font-semibold flex items-center gap-1"
             >
-              +54 9 351 427-6240
+              +54 9 351 817-4000 (0351 158-174000)
             </a>
           </div>
 
           <div className="flex items-center gap-4 text-[11px] text-slate-400">
-            <span>Sede Central: Alvear 81 · Tel (0351) 424-0527</span>
+            <span>Consultorio Los Naranjos: Pedro Goyena 1437 · Tel (0351) 465-0036</span>
             <span>·</span>
-            <span>Lunes a Viernes 08:00 a 20:00 hs</span>
+            <span>Centro Médico Las Flores</span>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 

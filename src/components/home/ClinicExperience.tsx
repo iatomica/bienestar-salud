@@ -11,6 +11,7 @@ import {
   CheckCircle,
   MapPin,
   Stethoscope,
+  Phone,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -19,30 +20,30 @@ export const ClinicExperience: React.FC = () => {
     <section id="sedes" className="py-20 bg-surface border-b border-surface-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Photographic Gallery with WebP Medical Images */}
+          {/* Left Column: Photographic Gallery with Dra. Norma Ramírez Images */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <div className="relative rounded-2xl overflow-hidden shadow-soft border border-surface-muted h-56 sm:h-64 bg-slate-100">
                 <Image
-                  src="/images/medical_care_consultation.webp"
-                  alt="Consulta médica dedicada y personalizada en Bienestar Salud"
+                  src="/images/dra_norma_ramirez.webp"
+                  alt="Dra. Norma Ramírez, médica clínica en Córdoba"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-lg text-[10px] text-white font-medium">
-                  Atención Clínica Humanizada
+                  Dra. Norma Ramírez · Médica Clínica
                 </div>
               </div>
 
               <div className="relative rounded-2xl overflow-hidden shadow-soft border border-surface-muted h-40 sm:h-48 bg-slate-100">
                 <Image
-                  src="/images/medical_diagnostics_ecography.webp"
-                  alt="Equipamiento de diagnóstico y ecografía en Bienestar Salud"
+                  src="/images/medical_care_consultation.webp"
+                  alt="Examen y control clínico exhaustivo"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-lg text-[10px] text-white font-medium">
-                  Diagnóstico & Ecografía
+                  Examen Clínico y Control
                 </div>
               </div>
             </div>
@@ -50,13 +51,13 @@ export const ClinicExperience: React.FC = () => {
             <div className="space-y-4 pt-6">
               <div className="relative rounded-2xl overflow-hidden shadow-soft border border-surface-muted h-40 sm:h-48 bg-slate-100">
                 <Image
-                  src="/images/hero_medical_banner.webp"
-                  alt="Consultorios médicos confortables en Córdoba"
+                  src="/images/dra_norma_consulta.webp"
+                  alt="Consulta médica dedicada con la Dra. Norma Ramírez"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-lg text-[10px] text-white font-medium">
-                  Consultorios Climatizados
+                  Consulta Médica Dedicada
                 </div>
               </div>
 
@@ -67,33 +68,33 @@ export const ClinicExperience: React.FC = () => {
                     <MapPin size={20} weight="duotone" />
                   </div>
                   <h4 className="text-sm font-bold text-white leading-tight">
-                    Dos Sedes Céntricas en Córdoba
+                    Dos Puntos de Atención en Córdoba
                   </h4>
                   <p className="text-xs text-petrol-200 mt-2 leading-relaxed">
-                    Sede Central (Alvear 81) y Dirección de Especialidades (Sarmiento 480). Facilidad de acceso y consultorios modernos.
+                    Consultorio Particular en Pedro Goyena 1437 (Barrio Los Naranjos) y atención programada en Centro Médico Las Flores.
                   </p>
                 </div>
                 <div className="text-[11px] font-semibold text-emerald-300 flex items-center gap-1.5 pt-2 border-t border-white/10">
                   <CheckCircle size={14} weight="fill" />
-                  <span>Turnos sincronizados por WhatsApp</span>
+                  <span>Turnos coordinados por WhatsApp</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Values & Environmental description */}
+          {/* Right Column: Values & Doctor Consultation description */}
           <div className="lg:col-span-6 space-y-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-petrol-700 flex items-center gap-1.5">
               <Sparkle size={14} weight="fill" className="text-petrol-600" />
-              Compromiso Clínico & Atención al Paciente
+              Vocación Médica & Cercanía Humana
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal leading-tight">
-              Una experiencia médica pensada para tu tranquilidad y bienestar
+              Una consulta médica con tiempo para escucharte y cuidarte
             </h2>
 
             <p className="text-sm sm:text-base text-charcoal-secondary leading-relaxed">
-              En Bienestar Salud entendemos que tu salud no puede esperar en salas colmadas. Reorganizamos la atención médica en Córdoba con un sistema de turnos programados, médicos comprometidos y dos centros coordinados para brindarte un servicio ágil, cálido y eficiente.
+              La Dra. Norma Ramírez concibe la medicina clínica como una práctica de escucha activa, empatía y rigor científico. Sin apuros ni esperas interminables, cada consulta está diseñada para comprender tu situación de salud de forma integral y brindarte un plan de cuidado claro y personalizado.
             </p>
 
             <div className="space-y-4 pt-2">
@@ -103,10 +104,10 @@ export const ClinicExperience: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-charcoal">
-                    Puntualidad y Turnos Escalonados
+                    Tiempo Exclusivo y Sin Apuros
                   </h4>
                   <p className="text-xs text-charcoal-muted mt-0.5 leading-relaxed">
-                    Asignamos intervalos reales entre pacientes para evitar esperas excesivas en sala y garantizar que el profesional médico te dedique el tiempo necesario en cada consulta.
+                    Consultas con duración adecuada para un examen físico minucioso, revisión exhaustiva de estudios previos y explicación clara de cada diagnóstico o indicación.
                   </p>
                 </div>
               </div>
@@ -117,10 +118,10 @@ export const ClinicExperience: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-charcoal">
-                    Cuerpo Médico Interdisciplinario
+                    Seguimiento Longitudinal y Personalizado
                   </h4>
                   <p className="text-xs text-charcoal-muted mt-0.5 leading-relaxed">
-                    Médicos clínicos, cardiólogos, pediatras, traumatólogos y ginecólogos en constante interconsulta para ofrecerte un diagnóstico preciso y un tratamiento integral.
+                    Monitoreo continuo de hipertensión arterial, diabetes y enfermedades crónicas. Tu médica de cabecera que conoce tu historia clínica a lo largo del tiempo.
                   </p>
                 </div>
               </div>
@@ -131,10 +132,10 @@ export const ClinicExperience: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-charcoal">
-                    Atención por Obras Sociales & Particulares
+                    Obras Sociales, Prepagas y Particulares
                   </h4>
                   <p className="text-xs text-charcoal-muted mt-0.5 leading-relaxed">
-                    Convenios con las principales obras sociales (APROSS, OSDE, Swiss Medical, Galeno, Medifé, etc.) y aranceles particulares transparentes para que el acceso a la salud sea simple.
+                    Atención por APROSS, OSDE, Swiss Medical, Galeno, Sancor Salud, Medifé, PAMI y consultas privadas con aranceles accesibles y emisión de factura para reintegro.
                   </p>
                 </div>
               </div>
@@ -148,14 +149,15 @@ export const ClinicExperience: React.FC = () => {
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all"
               >
                 <WhatsappLogo size={18} weight="fill" />
-                <span>Pedir Turno por WhatsApp (Sarmiento 480)</span>
+                <span>Pedir Turno por WhatsApp: (0351) 158-174000</span>
               </a>
 
               <a
-                href="tel:+543514240527"
+                href="tel:+543514650036"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-surface hover:bg-slate-100 text-charcoal font-semibold text-xs sm:text-sm border border-slate-200 transition-all"
               >
-                <span>Llamar a Sede Alvear: (0351) 424-0527</span>
+                <Phone size={16} className="text-petrol-700" />
+                <span>Llamar a Consultorio Pedro Goyena: (0351) 465-0036</span>
               </a>
             </div>
           </div>
@@ -164,4 +166,5 @@ export const ClinicExperience: React.FC = () => {
     </section>
   );
 };
+
 

@@ -7,9 +7,10 @@ import {
   CheckCircle,
   ShieldCheck,
   CalendarBlank,
-  Scan,
-  Cpu,
+  Heartbeat,
+  Stethoscope,
   WhatsappLogo,
+  MapPin,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -22,23 +23,23 @@ export const TrustAndFAQ: React.FC = () => {
 
   const trustSignals = [
     {
-      title: "Atención Programada y Puntual",
-      description: "Protocolo de turnos escalonados con confirmación previa para eliminar salas de espera colmadas y respetar tu tiempo.",
+      title: "Atención Dedicada y Puntual",
+      description: "Consultas con tiempo exclusivo para cada paciente, examen clínico exhaustivo y sin esperas aceleradas.",
       icon: CalendarBlank,
     },
     {
-      title: "Dos Sedes en Córdoba Capital",
-      description: "Sede Central (Alvear 81) y Dirección de Especialidades (Sarmiento 480) para facilitarte turnos cercanos y accesibles.",
-      icon: ShieldCheck,
+      title: "Dos Consultorios en Córdoba",
+      description: "Pedro Goyena 1437 (Barrio Los Naranjos) y Centro Médico Las Flores para mayor comodidad y cercanía.",
+      icon: MapPin,
     },
     {
-      title: "Diagnóstico Clínico en Consultorio",
-      description: "Electrocardiograma (ECG) con informe ágil, ecografías generales y laboratorio clínico para resolver todo en el mismo centro.",
-      icon: Cpu,
+      title: "Matrícula Habilitante",
+      description: "Médica clínica certificada por el Consejo de Médicos de la Provincia de Córdoba (MP 26184).",
+      icon: Stethoscope,
     },
     {
-      title: "Más de 14 Obras Sociales",
-      description: "Convenios directos con APROSS, OSDE, Swiss Medical, Galeno, Medifé, Sancor y cajas profesionales.",
+      title: "Obras Sociales y Particulares",
+      description: "Atención con APROSS, OSDE, Swiss Medical, Galeno, Medifé, PAMI y reintegros por consulta privada.",
       icon: ShieldCheck,
     },
   ];
@@ -53,10 +54,10 @@ export const TrustAndFAQ: React.FC = () => {
               Compromiso Clínico & Calidad de Atención
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal mt-1">
-              Atención médica de confianza, ágil y dedicada
+              Atención médica de confianza, cercana y dedicada
             </h2>
             <p className="text-xs sm:text-sm text-charcoal-muted mt-2">
-              Bases funcionales que garantizan previsibilidad, bienestar y respeto en cada visita a nuestros consultorios.
+              Pilares que garantizan previsibilidad, bienestar y respeto en cada consulta con la Dra. Norma Ramírez.
             </p>
           </div>
 
@@ -90,10 +91,10 @@ export const TrustAndFAQ: React.FC = () => {
               Dudas Frecuentes
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-charcoal leading-tight">
-              Preguntas habituales sobre turnos y sedes
+              Preguntas habituales sobre turnos y atención
             </h3>
             <p className="text-xs sm:text-sm text-charcoal-secondary leading-relaxed">
-              Encontrá respuestas rápidas sobre coberturas médicas, modalidades de turnos y preparación para tu consulta en Córdoba.
+              Encontrá respuestas rápidas sobre coberturas médicas, modalidades de consulta y preparación para tu visita con la Dra. Norma Ramírez.
             </p>
 
             <div className="pt-4 p-5 rounded-2xl bg-petrol-50/70 border border-petrol-200/80 space-y-3">
@@ -101,7 +102,7 @@ export const TrustAndFAQ: React.FC = () => {
                 ¿Tenés una consulta médica específica?
               </h4>
               <p className="text-xs text-petrol-800 leading-relaxed">
-                Escribinos de forma directa por WhatsApp y nuestro equipo de secretaría te responderá al instante.
+                Escribinos directamente a nuestro WhatsApp oficial y coordinaremos tu turno o responderemos tus dudas.
               </p>
               <a
                 href={clinicConfig.whatsappUrl}
@@ -110,7 +111,7 @@ export const TrustAndFAQ: React.FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-sm transition-all"
               >
                 <WhatsappLogo size={16} weight="fill" />
-                <span>Chatear al +54 9 351 427-6240</span>
+                <span>WhatsApp: (0351) 158-174000</span>
               </a>
             </div>
           </div>
@@ -153,4 +154,5 @@ export const TrustAndFAQ: React.FC = () => {
     </section>
   );
 };
+
 

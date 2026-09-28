@@ -11,6 +11,7 @@ import {
   CalendarBlank,
   MapPin,
   CheckCircle,
+  Stethoscope,
 } from "@phosphor-icons/react";
 import { SPECIALTIES } from "@/data/specialties";
 import { PROFESSIONALS } from "@/data/professionals";
@@ -30,9 +31,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   initialProfessionalId = null,
 }) => {
   const [step, setStep] = useState<number>(1);
-  const [selectedBranchId, setSelectedBranchId] = useState<string>("sarmiento");
+  const [selectedBranchId, setSelectedBranchId] = useState<string>("goyena");
   const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("");
-  const [selectedProfessionalId, setSelectedProfessionalId] = useState<string>("any");
   const [patientName, setPatientName] = useState("");
   const [patientPhone, setPatientPhone] = useState("");
   const [patientCoverage, setPatientCoverage] = useState("Particular / Consulta Privada");
@@ -44,12 +44,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       if (initialSpecialtyId) {
         setSelectedSpecialtyId(initialSpecialtyId);
         setStep(2);
-      } else if (initialProfessionalId) {
-        setSelectedProfessionalId(initialProfessionalId);
-        setStep(3);
       } else {
         setSelectedSpecialtyId(SPECIALTIES[0].id);
-        setSelectedProfessionalId("any");
         setStep(1);
       }
       setErrorMsg("");
@@ -72,7 +68,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const selectedSpecialtyObj =
     SPECIALTIES.find((s) => s.id === selectedSpecialtyId) || SPECIALTIES[0];
-  const selectedDoctorObj = PROFESSIONALS.find((p) => p.id === selectedProfessionalId);
+  const doctor = PROFESSIONALS[0];
   const selectedBranchObj =
     clinicConfig.branches.find((b) => b.id === selectedBranchId) || clinicConfig.branches[0];
 
@@ -82,22 +78,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       return;
     }
 
-    const doctorName = selectedDoctorObj
-      ? selectedDoctorObj.name
-      : "Primer profesional disponible";
-
     const text =
-      `*Solicitud de Turno Médico - Bienestar Salud*\n` +
+      `*Solicitud de Turno - Dra. Norma Ramírez*\n` +
       `--------------------------------\n` +
       `👤 *Paciente:* ${patientName.trim()}\n` +
       `📞 *Teléfono:* ${patientPhone || "No especificado"}\n` +
-      `🏥 *Sede de atención:* ${selectedBranchObj.name} (${selectedBranchObj.address})\n` +
-      `🩺 *Especialidad:* ${selectedSpecialtyObj.name}\n` +
-      `👨‍⚕️ *Profesional solicitado:* ${doctorName}\n` +
+      `🏥 *Lugar de atención:* ${selectedBranchObj.name} (${selectedBranchObj.address})\n` +
+      `🩺 *Servicio / Motivo:* ${selectedSpecialtyObj.name}\n` +
+      `👩‍⚕️ *Profesional:* Dra. Norma Ramírez (Médica Clínica)\n` +
       `🛡️ *Cobertura / Obra Social:* ${patientCoverage}\n` +
-      (consultationReason ? `📝 *Motivo / Síntoma:* ${consultationReason}\n` : "") +
+      (consultationReason ? `📝 *Detalle / Síntoma:* ${consultationReason}\n` : "") +
       `--------------------------------\n` +
-      `Hola equipo de Bienestar Salud, solicito coordinar un turno médico prioritario con estos datos. ¡Muchas gracias!`;
+      `Hola Dra. Norma Ramírez, quisiera coordinar un turno de consulta médica con estos datos. ¡Muchas gracias!`;
 
     const url = `https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
@@ -119,11 +111,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         <div className="flex items-center justify-between px-6 py-4 border-b border-surface-muted bg-surface-subtle/50">
           <div>
             <span className="text-[11px] font-semibold uppercase tracking-wider text-petrol-700 block">
-              Coordinador de Turnos Médicos · Bienestar Salud
+              Coordinador de Turnos · Dra. Norma Ramírez
             </span>
             <h3 className="text-base font-bold text-charcoal">
-              {step === 1 && "Paso 1: Sede y Especialidad"}
-              {step === 2 && "Paso 2: Elegí profesional preferido"}
+              {step === 1 && "Paso 1: Consultorio y Motivo"}
+              {step === 2 && "Paso 2: Confirmar Profesional"}
               {step === 3 && "Paso 3: Tus datos de contacto"}
             </h3>
           </div>
@@ -152,7 +144,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-4">
               <div>
                 <label className="text-xs font-semibold text-charcoal block mb-2">
-                  1. Elegí la Sede de tu preferencia:
+                  1. Elegí dónde preferís atenderte:
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {clinicConfig.branches.map((branch) => {
@@ -186,7 +178,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               <div>
                 <label className="text-xs font-semibold text-charcoal block mb-2">
-                  2. Seleccioná la Especialidad Médica:
+                  2. Seleccioná el Servicio o Motivo de consulta:
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 overflow-y-auto pr-1">
                   {SPECIALTIES.map((spec) => {
@@ -217,74 +209,55 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
           )}
 
-          {/* STEP 2: Professional */}
+          {/* STEP 2: Professional confirmation */}
           {step === 2 && (
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="p-3 bg-surface-subtle rounded-xl border border-surface-muted text-xs flex items-center justify-between">
                 <span>
-                  Especialidad: <strong>{selectedSpecialtyObj.name}</strong>
+                  Servicio: <strong>{selectedSpecialtyObj.name}</strong>
                 </span>
                 <span className="text-petrol-700 font-medium">
                   {selectedBranchObj.name}
                 </span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedProfessionalId("any");
-                  setStep(3);
-                }}
-                className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between ${
-                  selectedProfessionalId === "any"
-                    ? "border-emerald-600 bg-emerald-50/50 ring-1 ring-emerald-600"
-                    : "border-surface-muted hover:border-slate-300"
-                }`}
-              >
-                <div>
-                  <span className="text-xs font-bold text-charcoal block">
-                    Primer médico disponible
-                  </span>
-                  <span className="text-[11px] text-charcoal-muted">
-                    Asigna el turno más próximo sin esperas
-                  </span>
+              <div className="p-4 rounded-2xl border-2 border-emerald-600 bg-emerald-50/40 space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-petrol-900 border-2 border-petrol-600 shrink-0">
+                    <img
+                      src={doctor.image}
+                      alt={doctor.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-bold text-charcoal">{doctor.name}</span>
+                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                        Médica a cargo
+                      </span>
+                    </div>
+                    <span className="text-xs text-petrol-800 font-medium block">
+                      {doctor.role}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-500 block">
+                      {doctor.license}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-full">
-                  Más rápido
-                </span>
-              </button>
 
-              <div className="space-y-2 pt-1 max-h-56 overflow-y-auto pr-1">
-                {PROFESSIONALS.map((prof) => {
-                  const isSelected = selectedProfessionalId === prof.id;
-                  return (
-                    <button
-                      key={prof.id}
-                      type="button"
-                      onClick={() => {
-                        setSelectedProfessionalId(prof.id);
-                        setStep(3);
-                      }}
-                      className={`w-full text-left p-3 rounded-xl border transition-all flex items-center gap-3 ${
-                        isSelected
-                          ? "border-emerald-600 bg-emerald-50/50 ring-1 ring-emerald-600"
-                          : "border-surface-muted hover:border-slate-300"
-                      }`}
-                    >
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-charcoal">{prof.name}</span>
-                          <span className="text-[10px] font-mono text-petrol-700">
-                            {prof.license}
-                          </span>
-                        </div>
-                        <span className="text-[11px] text-charcoal-muted block truncate">
-                          {prof.role} · {prof.branch}
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
+                <p className="text-xs text-charcoal-secondary leading-relaxed border-t border-emerald-200/60 pt-2">
+                  Atención médica presencial con turno escalonado en <strong>{selectedBranchObj.name}</strong> ({selectedBranchObj.address}).
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setStep(3)}
+                  className="w-full py-2.5 px-4 rounded-xl bg-petrol-800 text-white font-semibold text-xs hover:bg-petrol-900 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <span>Continuar con la Dra. Norma Ramírez</span>
+                  <ArrowRight size={14} />
+                </button>
               </div>
             </div>
           )}
@@ -294,18 +267,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-4">
               <div className="p-3 bg-surface-subtle rounded-xl border border-surface-muted text-xs space-y-1">
                 <div className="flex justify-between">
-                  <span className="text-charcoal-muted">Sede:</span>
+                  <span className="text-charcoal-muted">Consultorio:</span>
                   <strong className="text-charcoal">{selectedBranchObj.name}</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-charcoal-muted">Especialidad:</span>
+                  <span className="text-charcoal-muted">Servicio:</span>
                   <strong className="text-charcoal">{selectedSpecialtyObj.name}</strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-charcoal-muted">Profesional:</span>
-                  <strong className="text-charcoal">
-                    {selectedDoctorObj ? selectedDoctorObj.name : "Primer disponible"}
-                  </strong>
+                  <strong className="text-charcoal">Dra. Norma Ramírez</strong>
                 </div>
               </div>
 
@@ -373,11 +344,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
                 <div>
                   <label className="block text-xs font-semibold text-charcoal mb-1">
-                    Motivo de consulta o estudio (opcional)
+                    Motivo de consulta o síntoma (opcional)
                   </label>
                   <textarea
                     rows={2}
-                    placeholder="Ej. Control de rutina / Apto físico / Ecografía abdominal..."
+                    placeholder="Ej. Control de presión arterial / Chequeo anual / Apto físico..."
                     value={consultationReason}
                     onChange={(e) => setConsultationReason(e.target.value)}
                     className="w-full px-3 py-2 text-xs bg-surface border border-surface-muted rounded-xl focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
@@ -432,4 +403,5 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     </div>
   );
 };
+
 
