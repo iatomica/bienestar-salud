@@ -1,0 +1,18 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="56" fill="url(#gradBg)"/>
+  <defs>
+    <linearGradient id="gradBg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B3B42"/>
+      <stop offset="100%" stop-color="#062125"/>
+    </linearGradient>
+    <linearGradient id="crossGrad" x1="48" y1="48" x2="208" y2="208" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M96 48C96 41.3726 101.373 36 108 36H148C154.627 36 160 41.3726 160 48V96H208C214.627 96 220 101.373 220 108V148C220 154.627 214.627 160 208 160H160V208C160 214.627 154.627 220 148 220H108C101.373 220 96 214.627 96 208V160H48C41.3726 160 36 154.627 36 148V108C36 101.373 41.3726 96 48 96H96V48Z" fill="url(#crossGrad)"/>
+
+  <path d="M74 128H104L114 106L130 150L144 120L152 128H182" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
