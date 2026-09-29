@@ -82,9 +82,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <span className="text-base sm:text-lg font-bold tracking-tight text-charcoal group-hover:text-petrol-700 transition-colors leading-none">
                 Dra. Norma Ramírez
               </span>
-              <span className="text-[11px] font-medium text-petrol-700 mt-0.5 tracking-wide">
-                Médica Clínica · Medicina General
-              </span>
             </div>
           </Link>
 
