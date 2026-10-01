@@ -40,97 +40,93 @@ export const Professionals: React.FC<ProfessionalsProps> = () => {
   return (
     <section
       id="sobre-mi"
-      className="relative py-16 sm:py-20 bg-gradient-to-r from-[#0070b0] via-[#0084cc] to-[#0070b0] text-white overflow-hidden"
+      className="relative w-full overflow-hidden bg-gradient-to-r from-[#0070b0] via-[#0084cc] to-[#0070b0] text-white min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] flex items-center"
     >
-      {/* Background Dot Grid */}
+      {/* 1. Full-Height Image on Left Side with Smooth Center Gradient Fade */}
       <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
+        className="absolute top-0 bottom-0 left-0 h-full w-full md:w-[65%] lg:w-[58%] xl:w-[52%] z-0 pointer-events-none select-none"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to left, transparent 0%, rgba(0,0,0,0.85) 32%, black 100%)",
+          maskImage:
+            "linear-gradient(to left, transparent 0%, rgba(0,0,0,0.85) 32%, black 100%)",
+        }}
+      >
+        <Image
+          src="/images/dr_rodrigo_sobre_mi_clean.jpg"
+          alt="Dr. Rodrigo Julián Melo - Risus Dental"
+          fill
+          priority
+          quality={100}
+          className="object-cover object-[24%_center]"
+        />
+
+        {/* Soft edge gradient overlay that blends and fuses the image smoothly into the blue section background */}
+        <div className="absolute inset-y-0 right-0 w-32 sm:w-48 lg:w-60 bg-gradient-to-l from-[#0070b0] via-[#0070b0]/75 to-transparent pointer-events-none" />
+
+        {/* Mobile overlay to ensure text contrast on small mobile viewports */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0070b0]/95 via-[#0070b0]/75 to-transparent sm:hidden pointer-events-none" />
+      </div>
+
+      {/* Background Micro-Dots & Glow */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(#ffffff 1.2px, transparent 1.2px)",
           backgroundSize: "22px 22px",
         }}
       />
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-pink-500/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-500/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Doctor inside Neon Pink Halo & Floating 3D Tooth */}
-          <div className="lg:col-span-5 flex justify-center relative">
-            {/* Playful top annotation */}
-            <div className="absolute -top-4 left-4 z-20 transform -rotate-6 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-xs font-semibold text-white shadow-md">
-              ✨ Más que dientes, personas :)
-            </div>
-
-            {/* Circular Doctor Portrait with Glowing Neon Pink Arch */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-[#ff2d75] shadow-[0_0_35px_rgba(255,45,117,0.5)] bg-pink-500/20 group">
-              <Image
-                src="/images/dr_rodrigo_portrait_square.jpg"
-                alt="Dr. Rodrigo Julián Melo - Risus Dental"
-                fill
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Floating 3D Tooth with Heart at bottom left */}
-            <div className="absolute -bottom-4 -left-2 sm:left-4 z-20 w-24 h-24 drop-shadow-2xl animate-float">
-              <Image
-                src="/images/tooth_heart_3d.png"
-                alt="Sonrisa y Cuidado Dental"
-                fill
-                className="object-contain"
-              />
-            </div>
+      {/* 2. Content Layer: Positioned on the Right Half */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex justify-end">
+        <div className="w-full lg:w-1/2 xl:w-[54%] space-y-6">
+          <div className="space-y-2">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-300 bg-white/10 px-3.5 py-1 rounded-full backdrop-blur-sm border border-white/15">
+              SOBRE MÍ
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white drop-shadow-md">
+              Hola, soy el <br />
+              <span className="text-[#38bdf8]">Dr. Rodrigo Julián Melo</span>
+            </h2>
+            <p className="text-sm sm:text-base font-semibold text-sky-100">
+              Odontología general • Estética dental • Tratamientos integrales
+            </p>
           </div>
 
-          {/* Right Column: Narrative, Quote & 4 Features Grid */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-300">
-                SOBRE MÍ
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
-                Hola, soy el <br />
-                <span className="text-[#38bdf8]">Dr. Rodrigo Julián Melo</span>
-              </h2>
-              <p className="text-sm sm:text-base font-semibold text-sky-100">
-                Odontología general • Estética dental • Tratamientos integrales
-              </p>
-            </div>
+          {/* Official WhatsApp Manifesto Quote Card */}
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg">
+            <p className="text-xs sm:text-sm text-sky-50 leading-relaxed italic">
+              &ldquo;Somos un consultorio odontológico privado dedicado con tu
+              bienestar y salud bucal. Nuestra misión es brindarte una atención
+              personalizada, basada en el respeto, la paciencia y empatía,
+              adaptándonos a los tiempos y necesidades de cada paciente.&rdquo;
+            </p>
+          </div>
 
-            {/* Official WhatsApp Manifesto Quote Card */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-lg">
-              <p className="text-xs sm:text-sm text-sky-50 leading-relaxed italic">
-                &ldquo;Somos un consultorio odontológico privado dedicado con tu
-                bienestar y salud bucal. Nuestra misión es brindarte una atención
-                personalizada, basada en el respeto, la paciencia y empatía,
-                adaptándonos a los tiempos y necesidades de cada paciente.&rdquo;
-              </p>
-            </div>
-
-            {/* 4 Feature Badges Grid matching mockup */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              {highlights.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-[#0b192c]/85 border border-white/20 rounded-2xl p-3.5 flex flex-col justify-between text-left shadow-md hover:bg-[#0b192c] transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-[#008de0] text-white flex items-center justify-center mb-2 shadow-sm">
-                      <Icon size={16} weight="bold" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-white leading-tight">
-                        {item.title}
-                      </h4>
-                      <p className="text-[10px] text-gray-300 mt-1 leading-snug">
-                        {item.description}
-                      </p>
-                    </div>
+          {/* 4 Feature Badges Grid matching mockup */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            {highlights.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-[#0b192c]/90 border border-white/20 rounded-2xl p-3.5 flex flex-col justify-between text-left shadow-md hover:bg-[#0b192c] transition-colors backdrop-blur-sm"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#008de0] text-white flex items-center justify-center mb-2 shadow-sm">
+                    <Icon size={16} weight="bold" />
                   </div>
-                );
-              })}
-            </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white leading-tight">
+                      {item.title}
+                    </h4>
+                    <p className="text-[10px] text-gray-300 mt-1 leading-snug">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
