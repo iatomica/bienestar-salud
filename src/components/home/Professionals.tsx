@@ -7,9 +7,7 @@ import {
   ShieldCheck,
   Sparkle,
   Star,
-  CheckCircle,
 } from "@phosphor-icons/react";
-import { clinicConfig } from "@/config/clinic";
 
 export interface ProfessionalsProps {
   onSelectProfessional?: (profId: string) => void;
@@ -52,21 +50,35 @@ export const Professionals: React.FC<ProfessionalsProps> = () => {
           backgroundSize: "22px 22px",
         }}
       />
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-pink-500/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Doctor inside Neon Pink Halo & Tooth with Heart */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 bg-gradient-to-b from-sky-400/20 to-pink-500/20">
-              <div className="relative w-full aspect-[252/208]">
-                <Image
-                  src="/images/mockup/sobre_mi_doctor.png"
-                  alt="Dr. Rodrigo Julián Melo - Risus Dental"
-                  fill
-                  className="object-contain object-center"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Doctor inside Neon Pink Halo & Floating 3D Tooth */}
+          <div className="lg:col-span-5 flex justify-center relative">
+            {/* Playful top annotation */}
+            <div className="absolute -top-4 left-4 z-20 transform -rotate-6 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-xs font-semibold text-white shadow-md">
+              ✨ Más que dientes, personas :)
+            </div>
+
+            {/* Circular Doctor Portrait with Glowing Neon Pink Arch */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-[#ff2d75] shadow-[0_0_35px_rgba(255,45,117,0.5)] bg-pink-500/20 group">
+              <Image
+                src="/images/dr_rodrigo_portrait_square.jpg"
+                alt="Dr. Rodrigo Julián Melo - Risus Dental"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Floating 3D Tooth with Heart at bottom left */}
+            <div className="absolute -bottom-4 -left-2 sm:left-4 z-20 w-24 h-24 drop-shadow-2xl animate-float">
+              <Image
+                src="/images/tooth_heart_3d.png"
+                alt="Sonrisa y Cuidado Dental"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
 

@@ -43,7 +43,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking }) => {
             <div className="lg:col-span-3 flex justify-center py-2">
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 drop-shadow-xl hover:scale-105 transition-transform duration-300">
                 <Image
-                  src="/images/mockup/tooth_heart_clean.png"
+                  src="/images/tooth_heart_3d.png"
                   alt="Risus Dental Sonrisa"
                   fill
                   className="object-contain"

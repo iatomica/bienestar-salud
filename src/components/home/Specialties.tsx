@@ -19,7 +19,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
         "Prevención, diagnóstico y tratamientos integrales para una sonrisa sana.",
       gradient: "from-[#ff3868] to-[#ff2256]",
       arrowColor: "text-[#ff2d75]",
-      icon: "/images/mockup/service_1_general.png",
+      icon: "/images/icons/icon_general.png",
     },
     {
       id: "atencion-integral",
@@ -27,7 +27,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
       description: "Cuidado completo en todas las etapas de tu vida.",
       gradient: "from-[#00bbf0] to-[#0092cf]",
       arrowColor: "text-[#0092cf]",
-      icon: "/images/mockup/service_2_integral.png",
+      icon: "/images/icons/icon_integral.png",
     },
     {
       id: "estetica-dental",
@@ -36,7 +36,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
         "Carillas, blanqueamiento y tratamientos estéticos para una sonrisa única.",
       gradient: "from-[#ff8fa3] to-[#ff758f]",
       arrowColor: "text-[#ff758f]",
-      icon: "/images/mockup/service_3_estetica.png",
+      icon: "/images/icons/icon_estetica.png",
     },
     {
       id: "implantes-dentales",
@@ -45,7 +45,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
         "Soluciones duraderas para recuperar tu sonrisa y funcionalidad.",
       gradient: "from-[#a29bfe] to-[#8075ea]",
       arrowColor: "text-[#8075ea]",
-      icon: "/images/mockup/service_4_implantes.png",
+      icon: "/images/icons/icon_implantes.png",
     },
     {
       id: "ortodoncia",
@@ -54,7 +54,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
         "Tratamientos modernos y personalizados para todas las edades.",
       gradient: "from-[#ff3377] to-[#e61e60]",
       arrowColor: "text-[#e61e60]",
-      icon: "/images/mockup/service_5_ortodoncia.png",
+      icon: "/images/icons/icon_ortodoncia.png",
     },
     {
       id: "limpieza-dental",
@@ -63,7 +63,7 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
         "Prevención y salud bucal con una limpieza profesional.",
       gradient: "from-[#38c8f8] to-[#02a9ea]",
       arrowColor: "text-[#02a9ea]",
-      icon: "/images/mockup/service_6_limpieza.png",
+      icon: "/images/icons/icon_limpieza.png",
     },
   ];
 
@@ -110,8 +110,8 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl pointer-events-none" />
 
               <div>
-                {/* 3D Icon */}
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 flex items-center justify-center">
+                {/* 3D Icon cropped from generated 2x3 grid */}
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-2 flex items-center justify-center">
                   <Image
                     src={service.icon}
                     alt={service.title}
@@ -133,9 +133,9 @@ export const Specialties: React.FC<SpecialtiesProps> = ({
 
               {/* Bottom White Circle with Arrow */}
               <div className="pt-4 flex justify-center">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
                   <ArrowRight
-                    size={14}
+                    size={15}
                     weight="bold"
                     className={service.arrowColor}
                   />

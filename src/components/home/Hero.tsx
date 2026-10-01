@@ -8,7 +8,6 @@ import {
   Star,
   ChatCircleDots,
   User,
-  Phone,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -24,26 +23,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-r from-[#007cc2] via-[#008de0] to-[#007cc2] text-white pt-8 pb-12 lg:pt-12 lg:pb-16"
+      className="relative overflow-hidden bg-gradient-to-r from-[#007cc2] via-[#008de0] to-[#007cc2] text-white pt-8 pb-14 lg:pt-14 lg:pb-20"
     >
-      {/* Background Decorative Circles & Dots */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-300/15 rounded-full blur-2xl pointer-events-none" />
+      {/* Background Pink Fluid Curves matching the reference mockup */}
+      <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-gradient-to-br from-[#ff2d75]/35 to-[#ff8fa3]/10 blur-2xl pointer-events-none" />
+      <div className="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-sky-300/20 blur-3xl pointer-events-none" />
       <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
+          backgroundImage: "radial-gradient(#ffffff 1.2px, transparent 1.2px)",
+          backgroundSize: "22px 22px",
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
-          {/* Left Column: Headline, Actions & Key Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Left Column: Headline, Copy, Action Buttons & Trust Stats */}
           <div className="lg:col-span-6 space-y-6">
             {/* Top eyebrow badge */}
-            <div className="inline-flex items-center gap-2">
-              <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-sky-100/90">
+            <div className="inline-flex items-center">
+              <span className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-100/90 bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm border border-white/15">
                 ODONTOLOGÍA EN BUENOS AIRES
               </span>
             </div>
@@ -75,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
               {/* Hand-drawn annotation "Tu sonrisa en buenas manos" */}
               <div className="hidden sm:flex items-center gap-2 absolute top-12 right-0 sm:right-6 lg:right-2 transform rotate-[-6deg] text-sky-100 font-medium text-xs sm:text-sm select-none">
-                <span className="bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/20">
+                <span className="bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 font-semibold shadow-sm">
                   ✨ Tu sonrisa en buenas manos
                 </span>
                 <svg
@@ -122,49 +121,49 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
 
             {/* 4 Feature Badges in a Row matching mockup */}
-            <div className="pt-4 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-3 text-white/90 text-xs sm:text-sm">
+            <div className="pt-4 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-3 text-white/95 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                  <Star size={15} weight="fill" className="text-amber-300" />
+                <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                  <Star size={16} weight="fill" className="text-amber-300" />
                 </div>
-                <span className="font-semibold text-xs">5 estrellas</span>
+                <span className="font-bold text-xs">5 estrellas</span>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                  <ChatCircleDots size={15} weight="bold" className="text-sky-200" />
+                <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                  <ChatCircleDots size={16} weight="bold" className="text-sky-200" />
                 </div>
-                <span className="font-semibold text-xs leading-tight">
+                <span className="font-bold text-xs leading-tight">
                   212 reseñas en Google
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                  <User size={15} weight="bold" className="text-pink-300" />
+                <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                  <User size={16} weight="bold" className="text-pink-300" />
                 </div>
-                <span className="font-semibold text-xs leading-tight">
+                <span className="font-bold text-xs leading-tight">
                   Atención personalizada
                 </span>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                  <WhatsappLogo size={15} weight="fill" className="text-emerald-300" />
+                <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                  <WhatsappLogo size={16} weight="fill" className="text-emerald-300" />
                 </div>
-                <span className="font-semibold text-xs leading-tight">
+                <span className="font-bold text-xs leading-tight">
                   Consultanos por WhatsApp
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Hero Doctor with Clinic & playful annotations */}
+          {/* Right Column: High-Res Gemini Photography of Doctor in Clinic */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-tr from-sky-400/30 to-pink-300/30 backdrop-blur-sm group">
-              <div className="relative w-full aspect-[360/255]">
+            <div className="relative w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white/40 bg-gradient-to-tr from-sky-400/30 to-pink-300/30 backdrop-blur-sm group">
+              <div className="relative w-full aspect-[4/3]">
                 <Image
-                  src="/images/mockup/hero_doctor_clean.png"
+                  src="/images/dr_rodrigo_clinic_hero.jpg"
                   alt="Dr. Rodrigo Julián Melo - Risus Dental"
                   fill
                   priority
@@ -172,8 +171,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 />
               </div>
 
-              {/* Floating aesthetic badge top right */}
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md text-[#0b192c] px-3 py-1.5 rounded-full shadow-lg border border-pink-100 flex items-center gap-1.5 text-xs font-bold">
+              {/* Floating aesthetic badge top right matching mockup */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-[#0b192c] px-3.5 py-1.5 rounded-full shadow-lg border border-pink-100 flex items-center gap-1.5 text-xs font-bold">
                 <span className="text-[#ff2d75]">✨</span>
                 <span>Sonrisas reales para una vida más linda</span>
               </div>
