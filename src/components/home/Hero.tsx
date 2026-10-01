@@ -23,44 +23,41 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
     <section
       id="inicio"
-      className="relative w-full overflow-hidden bg-[#007cc2] text-white"
+      className="relative w-full overflow-hidden bg-gradient-to-r from-[#006eb2] via-[#007cc2] to-[#0082cb] text-white pt-8 pb-14 lg:py-16 xl:py-20"
     >
-      {/* 1. Full-bleed clean background image supplied by the user */}
-      <div className="relative w-full min-h-[620px] sm:min-h-[680px] lg:min-h-[760px] xl:min-h-[820px] flex items-center">
-        {/* Background Image Container */}
-        <div className="absolute inset-0 z-0 select-none pointer-events-none">
-          <Image
-            src="/images/hero_banner_clean.jpg"
-            alt="Risus Dental - Dr. Rodrigo Julián Melo"
-            fill
-            priority
-            quality={95}
-            className="object-cover object-[68%_center] sm:object-center"
-          />
-          {/* Subtle mobile gradient overlay to ensure text contrast on small mobile viewports */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#007cc2]/90 via-[#007cc2]/60 to-transparent sm:hidden" />
-        </div>
+      {/* Background Soft Glows & Micro-Pattern */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-sky-300/15 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-96 h-96 rounded-full bg-pink-500/15 blur-3xl pointer-events-none" />
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#ffffff 1.2px, transparent 1.2px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
 
-        {/* 2. Interactive Overlay Content Aligned to Left Negative Space */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="max-w-xl lg:max-w-lg xl:max-w-xl space-y-6 sm:space-y-7">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
+          
+          {/* LEFT HALF (Col 1 to 6): Typography, Doodles, Action Buttons & Trust Stats */}
+          <div className="lg:col-span-6 space-y-6 sm:space-y-7">
             {/* Eyebrow Label */}
             <div className="inline-block">
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-white/90 drop-shadow-sm">
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-white/90 bg-white/10 px-3.5 py-1 rounded-full backdrop-blur-sm border border-white/15 drop-shadow-sm">
                 ODONTOLOGÍA EN BUENOS AIRES
               </span>
             </div>
 
-            {/* Main Headline: "Sonreír te cambia todo :)" with Doodles */}
+            {/* Main Title: "Sonreír te cambia todo :)" with Doodles */}
             <div className="relative">
               {/* Three Pink Diagonal Brush Accents at top left */}
-              <div className="absolute -top-6 -left-3 flex gap-1 transform -rotate-12">
+              <div className="absolute -top-6 -left-2 flex gap-1 transform -rotate-12">
                 <span className="w-1.5 h-4 bg-[#ff2d75] rounded-full transform -rotate-12" />
                 <span className="w-1.5 h-5 bg-[#ff2d75] rounded-full transform -rotate-6" />
                 <span className="w-1.5 h-4 bg-[#ff2d75] rounded-full" />
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.04] text-white drop-shadow-md">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white drop-shadow-md">
                 Sonreír <br />
                 te cambia <br />
                 <span className="relative inline-block">
@@ -85,16 +82,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </span>
               </h1>
 
-              {/* Hand-drawn note: "Tu sonrisa en buenas manos ♡" pointing to Doctor */}
-              <div className="hidden md:flex flex-col items-center absolute -top-2 left-[310px] lg:left-[340px] xl:left-[380px] transform -rotate-[8deg] select-none text-white pointer-events-none drop-shadow-md">
-                <span className="text-xs sm:text-sm font-bold italic tracking-wide leading-tight text-center text-sky-100 font-sans">
-                  Tu sonrisa <br />
-                  en buenas <br />
-                  manos
+              {/* Hand-drawn note: "Tu sonrisa en buenas manos ♡" */}
+              <div className="hidden sm:flex items-center gap-2 absolute top-12 right-0 sm:right-6 lg:right-0 transform rotate-[-6deg] text-sky-100 select-none drop-shadow-md pointer-events-none">
+                <span className="bg-white/15 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 text-xs sm:text-sm font-semibold">
+                  ✨ Tu sonrisa en buenas manos
                 </span>
-                {/* Cute heart outline doodle */}
                 <svg
-                  className="w-5 h-5 text-sky-200 mt-0.5"
+                  className="w-5 h-5 text-sky-200"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -108,13 +102,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base lg:text-lg text-white/95 font-medium max-w-md sm:max-w-lg leading-relaxed drop-shadow-sm">
+            <p className="text-base sm:text-lg text-sky-50 font-normal max-w-lg leading-relaxed drop-shadow-sm">
               Cuidado dental profesional en un espacio moderno, cercano y pensado
               para vos.
             </p>
 
-            {/* CTAs matching mockup: Pink pill + Dark WhatsApp pill */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            {/* CTA Buttons: Pink pill + Dark WhatsApp pill */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <button
                 onClick={onOpenBooking}
                 className="bg-[#ff2d75] hover:bg-[#e61b63] text-white text-sm sm:text-base font-bold px-7 sm:px-8 py-3 rounded-full transition-all duration-200 transform hover:scale-[1.03] shadow-lg shadow-pink-600/35 flex items-center gap-2"
@@ -139,8 +133,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             </div>
 
             {/* 4 Feature Badges in a Row matching mockup */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-white text-xs sm:text-sm drop-shadow-sm">
-              {/* Badge 1 */}
+            <div className="pt-6 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-3 text-white text-xs sm:text-sm drop-shadow-sm">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
                   <Star size={16} weight="regular" className="text-white" />
@@ -150,7 +143,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </span>
               </div>
 
-              {/* Badge 2 */}
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
                   <ChatCircleDots size={16} weight="regular" className="text-white" />
@@ -160,7 +152,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </span>
               </div>
 
-              {/* Badge 3 */}
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
                   <User size={16} weight="regular" className="text-white" />
@@ -170,7 +161,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 </span>
               </div>
 
-              {/* Badge 4 */}
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
                   <WhatsappLogo size={16} weight="regular" className="text-white" />
@@ -181,36 +171,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* 3. Doodles & Badges positioned over the Doctor and Clinic on desktop */}
-        {/* Right Corner Doodle: "Sonrisas reales para una vida más linda ♡" */}
-        <div className="hidden lg:flex flex-col items-center absolute top-14 right-10 xl:right-16 select-none pointer-events-none drop-shadow-md transform rotate-[4deg]">
-          <span className="text-xs sm:text-sm font-bold italic tracking-wide text-white/95 text-center font-sans leading-tight">
-            Sonrisas <br />
-            reales <br />
-            para una <br />
-            vida más <br />
-            linda
-          </span>
-          <svg
-            className="w-5 h-5 text-pink-200 mt-1"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
-        </div>
+          {/* RIGHT HALF (Col 7 to 12): Sized Image with Soft Edge Gradient Melting into Blue Background */}
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 group">
+              {/* Aspect ratio container ensuring natural crisp resolution without pixelation */}
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3]">
+                <Image
+                  src="/images/hero_banner_clean.jpg"
+                  alt="Dr. Rodrigo Julián Melo en consultorio Risus Dental"
+                  fill
+                  priority
+                  quality={100}
+                  className="object-cover object-[70%_center] group-hover:scale-[1.02] transition-transform duration-500"
+                />
 
-        {/* Doctor Name Tag Badge on Doctor's Scrub Pocket */}
-        <div className="hidden sm:block absolute top-[64%] left-[61%] lg:left-[61%] xl:left-[62%] transform -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
-          <div className="bg-white/95 backdrop-blur-sm text-gray-800 text-[10px] font-bold px-2.5 py-0.5 rounded shadow-sm border border-gray-200/80 tracking-wide">
-            Dr. Rodrigo Julián Melo
+                {/* Left Edge Gradient Blend - Fuses smoothly into the blue section background */}
+                <div className="absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-[#007cc2] via-[#007cc2]/50 to-transparent pointer-events-none" />
+
+                {/* Bottom Edge subtle blend for mobile */}
+                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#007cc2] to-transparent pointer-events-none sm:hidden" />
+              </div>
+
+              {/* Floating aesthetic note top right */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-[#0b192c] px-3.5 py-1.5 rounded-full shadow-lg border border-pink-100 flex items-center gap-1.5 text-xs font-bold select-none">
+                <span className="text-[#ff2d75]">✨</span>
+                <span>Sonrisas reales para una vida más linda</span>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
