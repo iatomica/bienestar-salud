@@ -2,18 +2,16 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   WhatsappLogo,
   CheckCircle,
   MapPin,
-  Phone,
+  Star,
   Sparkle,
   ArrowRight,
-  ShieldCheck,
+  Heart,
   CalendarCheck,
-  FirstAid,
-  Stethoscope,
+  ShieldCheck,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -23,207 +21,211 @@ export interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#072429] via-[#0d3b42] to-[#082a30] text-white">
-      {/* Decorative ambient background glows */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 w-[32rem] h-[32rem] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#388288_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#fff0f6] via-[#fdf2f8] to-[#ffffff] text-charcoal pt-8 sm:pt-12 pb-16 lg:pb-24">
+      {/* Decorative ambient rainbow puff clouds and pastel glow */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-pink-300/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -right-20 w-[30rem] h-[30rem] bg-purple-300/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 left-1/3 w-80 h-80 bg-sky-200/35 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#ec4899_0.8px,transparent_0.8px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
 
-      {/* Main Banner Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-12 lg:pb-16 relative z-10">
-        {/* Top Eyebrow Badge */}
-        <div className="flex flex-wrap items-center gap-3 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-cyan-200 text-xs font-semibold tracking-wide uppercase">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Dra. Norma Ramírez · Médica Clínica</span>
+      {/* Main Content Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Top Badges Row */}
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-pink-200 shadow-soft text-xs font-bold text-risus-600">
+            <span className="w-2 h-2 rounded-full bg-pink-500 animate-ping" />
+            <span>🏳️‍🌈 Espacio Seguro & Libre de Juicios</span>
           </div>
 
-          <span className="hidden sm:inline-block text-xs font-medium text-cyan-100/70">
-            Córdoba Capital · Pedro Goyena 1437 & Centro Médico Las Flores
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 border border-purple-200 shadow-soft text-xs font-bold text-purple-700">
+            <div className="flex text-amber-400">
+              <Star size={13} weight="fill" />
+              <Star size={13} weight="fill" />
+              <Star size={13} weight="fill" />
+              <Star size={13} weight="fill" />
+              <Star size={13} weight="fill" />
+            </div>
+            <span>5.0 en Google</span>
+            <span className="text-charcoal-muted font-normal">• 212 reseñas</span>
+          </div>
+
+          <span className="hidden sm:inline-flex items-center gap-1 text-xs font-medium text-charcoal-muted bg-white/60 px-3 py-1.5 rounded-full border border-pink-100">
+            <MapPin size={13} className="text-risus-500" />
+            <span>Paraguay 2475, CABA</span>
           </span>
         </div>
 
-        {/* Banner Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* Left Column: Big Typographic Banner Title & Content */}
+        {/* Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column: Headlines & Presentation */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-cyan-300 flex items-center gap-2">
-                <Stethoscope size={18} weight="fill" className="text-cyan-300" />
-                Medicina General, Clínica y Preventiva
+            <div className="space-y-3">
+              <span className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-risus-600 font-mono">
+                <Sparkle size={16} weight="fill" className="text-risus-500 animate-pulse" />
+                Odontología Privada en Recoleta / CABA
               </span>
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.3rem] font-extrabold tracking-tight text-white leading-[1.08]">
-                ATENCIÓN MÉDICA INTEGRAL, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-100 to-emerald-200 drop-shadow-sm">
-                  CERCANA Y DEDICADA A TU SALUD
+
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.08] text-charcoal">
+                TU SONRISA LIBRE, <br />
+                <span className="rainbow-gradient-text drop-shadow-sm">
+                  RADIANTE Y SIN DOLOR.
                 </span>
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
-              Cuidado clínico personalizado para jóvenes y adultos en Córdoba Capital. Chequeos preventivos periódicos, control estricto de presión arterial, seguimiento de diabetes, aptos físicos y valoración preoperatoria con el tiempo y dedicación que merecés.
-            </p>
-
-            {/* Feature Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/8 backdrop-blur-md border border-white/10">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
-                  <CheckCircle size={18} weight="fill" />
+            {/* Official WhatsApp Manifesto Statement */}
+            <div className="p-4 sm:p-5 rounded-puff bg-white/90 border border-pink-200 shadow-puff relative">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-400 to-purple-400 text-white flex items-center justify-center shrink-0 shadow-md">
+                  <Heart size={20} weight="fill" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white leading-tight">LOS NARANJOS</div>
-                  <div className="text-[11px] text-slate-300">Pedro Goyena 1437</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/8 backdrop-blur-md border border-white/10">
-                <div className="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0 border border-cyan-500/30">
-                  <CheckCircle size={18} weight="fill" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white leading-tight">C. M. LAS FLORES</div>
-                  <div className="text-[11px] text-slate-300">Atención programada</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/8 backdrop-blur-md border border-white/10">
-                <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center shrink-0 border border-teal-500/30">
-                  <CheckCircle size={18} weight="fill" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white leading-tight">TURNOS ÁGILES</div>
-                  <div className="text-[11px] text-slate-300">WhatsApp directo</div>
+                  <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-risus-600 mb-1">
+                    Nuestra Filosofía en Risus Dental
+                  </h2>
+                  <p className="text-xs sm:text-sm text-charcoal-secondary leading-relaxed font-normal italic">
+                    "{clinicConfig.manifesto}"
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Action Buttons: Direct WhatsApp Consultation */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            {/* Three key pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div className="p-3.5 rounded-2xl bg-white/80 border border-pink-100 shadow-soft">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center text-xs font-bold">
+                    ✨
+                  </div>
+                  <span className="text-xs font-extrabold text-charcoal">ESTÉTICA DENTAL</span>
+                </div>
+                <p className="text-[11px] text-charcoal-muted">
+                  Blanqueamiento, carillas & armonía dental personalizada.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/80 border border-purple-100 shadow-soft">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-7 h-7 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xs font-bold">
+                    🦷
+                  </div>
+                  <span className="text-xs font-extrabold text-charcoal">ATENCIÓN INTEGRAL</span>
+                </div>
+                <p className="text-[11px] text-charcoal-muted">
+                  Salud bucal general, prevención y limpieza ultrasónica.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/80 border border-sky-100 shadow-soft">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-7 h-7 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xs font-bold">
+                    🛡️
+                  </div>
+                  <span className="text-xs font-extrabold text-charcoal">ALTA COMPLEJIDAD</span>
+                </div>
+                <p className="text-[11px] text-charcoal-muted">
+                  Endodoncia mecanizada, implantes y cirugía sin dolor.
+                </p>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
                 href={clinicConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.02]"
               >
-                <WhatsappLogo size={22} weight="fill" className="text-emerald-950" />
+                <WhatsappLogo size={22} weight="fill" />
                 <span>Pedir Turno por WhatsApp</span>
+                <ArrowRight size={16} weight="bold" />
               </a>
 
               <button
-                onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/20 backdrop-blur-sm transition-all"
+                onClick={() => onOpenBooking()}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-pink-50 border-2 border-pink-300 text-risus-600 font-extrabold text-sm sm:text-base transition-all shadow-soft hover:scale-[1.02]"
               >
-                <CalendarCheck size={18} />
-                <span>Coordinar Consulta Online</span>
+                <CalendarCheck size={20} weight="bold" />
+                <span>Agendar Consulta Online</span>
               </button>
             </div>
 
-            {/* Micro Trust Points */}
-            <div className="pt-2 flex flex-wrap items-center gap-5 sm:gap-6 text-xs text-slate-300/90">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck size={16} className="text-emerald-400" />
-                Médica Clínica · MP Córdoba
-              </span>
-              <a
-                href="tel:+543514650036"
-                className="flex items-center gap-1.5 hover:text-white transition-colors"
-              >
-                <Phone size={16} className="text-cyan-300" />
-                Pedro Goyena: (0351) 465-0036
-              </a>
-              <a
-                href={clinicConfig.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-emerald-300 hover:text-white transition-colors"
-              >
-                <WhatsappLogo size={16} weight="fill" />
-                WhatsApp: (0351) 158-174000
-              </a>
+            {/* Address & Hours Pill */}
+            <div className="flex flex-wrap items-center gap-4 text-xs text-charcoal-muted pt-1">
+              <div className="flex items-center gap-1.5">
+                <MapPin size={16} className="text-risus-500 shrink-0" />
+                <span>Paraguay 2475, Recoleta / Barrio Norte, CABA</span>
+              </div>
+              <span className="hidden sm:inline">•</span>
+              <span>Lunes a Viernes 09:00 a 20:00 hs</span>
             </div>
           </div>
 
-          {/* Right Column: Panoramic Medical Banner Showcase */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/15 to-white/5 p-2 backdrop-blur-md border border-white/20 shadow-2xl group">
-              <div className="relative rounded-[22px] overflow-hidden bg-[#0c373d] h-[380px] sm:h-[450px]">
-                {/* Doctor Attending Patient Image */}
+          {/* Right Column: Enhanced Doctor Portrait Card with Rainbow Puff Frame */}
+          <div className="lg:col-span-5 relative flex justify-center">
+            {/* Soft decorative background circles */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-pink-400/25 via-purple-300/25 to-sky-300/25 rounded-[36px] blur-xl" />
+
+            <div className="relative w-full max-w-md rounded-[32px] overflow-hidden bg-white p-3 shadow-puff border-2 border-pink-200 animate-float-puff">
+              {/* Doctor Enhanced Photo */}
+              <div className="relative aspect-[3/4] w-full rounded-[24px] overflow-hidden bg-pink-50">
                 <Image
-                  src="/images/dra_norma_consulta.webp"
-                  alt="Dra. Norma Ramírez atendiendo a un paciente en su consultorio médico"
+                  src="/images/dr_rodrigo_melo.jpg"
+                  alt="Dr. Rodrigo Julián Melo - Odontólogo Risus Dental"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className="object-cover object-top"
                   priority
                 />
 
-                {/* Subtle gradient vignette to blend typography and cards */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
-
-                {/* Top Status Pill */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-[11px] font-bold text-cyan-200 border border-white/15 shadow-sm flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Atención Médica Personalizada
-                  </span>
-
-                  <span className="px-2.5 py-1 rounded-full bg-white/90 text-petrol-900 text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
-                    Córdoba
+                {/* Top Badge on Photo */}
+                <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
+                  <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-xs font-mono font-black text-risus-600 shadow-sm border border-pink-100 flex items-center gap-1">
+                    <Sparkle size={13} weight="fill" className="text-pink-500" />
+                    <span>ODONTÓLOGO TITULAR</span>
                   </span>
                 </div>
 
-                {/* Floating Bottom Card: Clinic Location & Care Commitment */}
-                <div className="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-left shadow-xl space-y-2.5">
+                {/* Verified 5.0 Stars Badge on Photo */}
+                <div className="absolute bottom-3 left-3 right-3 z-10 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-pink-100 shadow-lg text-left">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs font-bold text-white tracking-wide flex items-center gap-1.5">
-                        <MapPin size={14} className="text-cyan-400" />
-                        Dra. Norma Ramírez
-                      </div>
-                      <div className="text-[11px] font-medium text-slate-300 mt-0.5">
-                        Pedro Goyena 1437 (Los Naranjos) & Centro Médico Las Flores
-                      </div>
+                      <h3 className="text-sm font-black text-charcoal leading-tight">
+                        Dr. Rodrigo Julián Melo
+                      </h3>
+                      <p className="text-[11px] text-charcoal-muted">
+                        Odontología Integral & Estética Dental
+                      </p>
                     </div>
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 shrink-0">
-                      Turno Previo
-                    </span>
+
+                    <div className="flex flex-col items-end">
+                      <div className="flex text-amber-400">
+                        <Star size={12} weight="fill" />
+                        <Star size={12} weight="fill" />
+                        <Star size={12} weight="fill" />
+                        <Star size={12} weight="fill" />
+                        <Star size={12} weight="fill" />
+                      </div>
+                      <span className="text-[10px] font-bold text-risus-600">
+                        212 Opiniones Google
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300">
-                    <span className="text-cyan-300 font-semibold">Clínica Médica & General</span>
-                    <span>Obras Sociales & Particulares</span>
+                  <div className="mt-2 pt-2 border-t border-pink-100 flex items-center justify-between text-[10px] font-mono text-charcoal-muted">
+                    <span className="flex items-center gap-1 text-emerald-600 font-bold">
+                      <CheckCircle size={12} weight="fill" />
+                      <span>Atención personalizada</span>
+                    </span>
+                    <span className="text-purple-600 font-bold">Paraguay 2475</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Banner Info Bar */}
-      <div className="bg-[#051c20] border-t border-white/10 py-3 px-4 text-xs text-slate-300">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="text-emerald-400 font-bold">●</span>
-            <span className="font-medium text-white">Línea directa WhatsApp para consultas y turnos:</span>
-            <a
-              href={clinicConfig.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-cyan-300 hover:text-white underline font-semibold flex items-center gap-1"
-            >
-              +54 9 351 817-4000 (0351 158-174000)
-            </a>
-          </div>
-
-          <div className="flex items-center gap-4 text-[11px] text-slate-400">
-            <span>Consultorio Los Naranjos: Pedro Goyena 1437 · Tel (0351) 465-0036</span>
-            <span>·</span>
-            <span>Centro Médico Las Flores</span>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
-

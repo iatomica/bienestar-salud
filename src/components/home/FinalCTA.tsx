@@ -5,9 +5,12 @@ import {
   WhatsappLogo,
   Check,
   MapPin,
-  Phone,
   ArrowRight,
-  Stethoscope,
+  Sparkle,
+  CalendarCheck,
+  Star,
+  Heart,
+  InstagramLogo,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -17,23 +20,24 @@ export interface FinalCTAProps {
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking }) => {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#062429] via-[#0b353c] to-[#07252a] text-white relative overflow-hidden">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-20 bg-gradient-to-br from-pink-600 via-purple-600 to-sky-500 text-white relative overflow-hidden">
+      {/* Decorative rainbow puff lighting */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 left-10 w-80 h-80 bg-pink-300/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-        <span className="inline-block px-3.5 py-1.5 rounded-full bg-white/10 text-cyan-200 text-xs font-semibold uppercase tracking-wider border border-white/10 backdrop-blur-md">
-          Dra. Norma Ramírez · Médica Clínica
+        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md border border-white/25">
+          <Sparkle size={13} weight="fill" />
+          <span>Risus Dental · Dr. Rodrigo Julián Melo</span>
         </span>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-          Cuidá tu salud con una atención médica <br className="hidden sm:inline" />
-          cercana, humana y comprometida en Córdoba.
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+          Tu sonrisa más libre, sana y cuidada <br className="hidden sm:inline" />
+          con empatía y sin dolor te espera.
         </h2>
 
-        <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed">
-          Coordiná tu consulta hoy mismo por WhatsApp (+54 9 351 817-4000 / 0351 158-174000) o llamá a nuestro consultorio de Pedro Goyena al (0351) 465-0036. Atendemos obras sociales, prepagas y particulares con turnos programados.
+        <p className="text-sm sm:text-base text-pink-100 max-w-2xl mx-auto leading-relaxed font-medium">
+          Coordiná tu visita hoy mismo por WhatsApp al <strong className="text-white">11 2395-3349</strong>. Te esperamos en nuestro consultorio privado de Paraguay 2475, Recoleta / CABA.
         </p>
 
         {/* Action Buttons */}
@@ -42,49 +46,49 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking }) => {
             href={clinicConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-base shadow-xl shadow-emerald-950/50 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-emerald-400 hover:bg-emerald-300 text-charcoal font-black text-base shadow-2xl transition-all hover:scale-[1.03]"
           >
-            <WhatsappLogo size={24} weight="fill" className="text-slate-950" />
-            <span>Solicitar Turno por WhatsApp</span>
+            <WhatsappLogo size={24} weight="fill" className="text-charcoal" />
+            <span>Hablar por WhatsApp (11 2395-3349)</span>
           </a>
 
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 backdrop-blur-md transition-all"
+            className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold text-sm border-2 border-white/30 backdrop-blur-md transition-all hover:scale-[1.02]"
           >
-            <span>Coordinar Consulta Online</span>
-            <ArrowRight size={18} />
+            <CalendarCheck size={18} />
+            <span>Agendar Consulta Online</span>
           </button>
         </div>
 
-        {/* Contact Strip with both locations */}
-        <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300">
+        {/* Location & Reviews Badges */}
+        <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/90">
           <a
-            href="https://maps.google.com/?q=Pedro+Goyena+1437,+Cordoba+Capital"
+            href={clinicConfig.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
-            <MapPin size={16} className="text-cyan-300" />
-            <span>Pedro Goyena 1437 (Los Naranjos) · Tel: (0351) 465-0036</span>
+            <MapPin size={16} weight="bold" />
+            <span>Paraguay 2475, CABA (Recoleta / Barrio Norte)</span>
           </a>
+
+          <div className="flex items-center gap-1.5 text-amber-300 font-bold">
+            <Star size={14} weight="fill" />
+            <span>5.0 en Google (212 Reseñas)</span>
+          </div>
+
           <a
-            href={clinicConfig.whatsappUrl}
+            href={clinicConfig.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
-            <WhatsappLogo size={16} weight="fill" className="text-emerald-400" />
-            <span>Centro Médico Las Flores · WA: (0351) 158-174000</span>
+            <InstagramLogo size={16} weight="bold" />
+            <span>@risusdental</span>
           </a>
-          <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-            <Check size={14} weight="bold" />
-            Obras Sociales & Prepagas
-          </span>
         </div>
       </div>
     </section>
   );
 };
-
-

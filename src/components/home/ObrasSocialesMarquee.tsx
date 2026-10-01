@@ -172,35 +172,35 @@ export const ObrasSocialesMarquee: React.FC = () => {
   const loopList = [...OBRAS_SOCIALES, ...OBRAS_SOCIALES, ...OBRAS_SOCIALES];
 
   return (
-    <section className="py-10 bg-surface border-y border-slate-200/80 relative overflow-hidden">
+    <section className="py-8 bg-pink-50/40 border-y border-pink-100 relative overflow-hidden select-none">
       {/* Subtle background ambient light */}
-      <div className="absolute inset-0 bg-gradient-to-r from-petrol-50/40 via-transparent to-petrol-50/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-100/30 via-transparent to-pink-100/30 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <div className="p-1.5 rounded-lg bg-petrol-100 text-petrol-700">
+            <div className="p-1.5 rounded-full bg-pink-100 text-pink-600">
               <ShieldCheck size={18} />
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-charcoal-secondary font-mono">
-                Cobertura &amp; Obras Sociales
+              <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider text-charcoal font-mono">
+                Coberturas &amp; Reintegros Prepagas
               </h3>
               <p className="text-xs text-charcoal-muted">
-                Atención directa con las principales mutuales y prepagas del país.
+                Atención particular y reintegros con las principales coberturas del país.
               </p>
             </div>
           </div>
 
           <a
             href={`https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(
-              "Hola, quisiera consultar por la cobertura de mi obra social o plan particular para atención odontológica."
+              "Hola Dr. Rodrigo Melo, quisiera consultar por reintegros de mi prepaga para atención odontológica en Risus Dental."
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold text-petrol-700 hover:text-petrol-800 transition-colors inline-flex items-center justify-center gap-1 hover:underline"
+            className="text-xs font-bold text-risus-600 hover:text-risus-700 transition-colors inline-flex items-center justify-center gap-1 hover:underline"
           >
-            <span>¿Tu obra social no figura? Consultar cobertura</span>
+            <span>¿Consultar por tu cobertura o reintegro?</span>
             <ArrowRight size={13} />
           </a>
         </div>
@@ -209,17 +209,17 @@ export const ObrasSocialesMarquee: React.FC = () => {
       {/* Ribbon Ticker Track with Lateral Fade Masks */}
       <div className="relative w-full overflow-hidden">
         {/* Left Fade Mask */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-surface via-surface/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
         
         {/* Right Fade Mask */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-surface via-surface/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
 
         {/* The Animated Scrolling Cinta */}
         <div className="animate-marquee py-2 flex items-center gap-4 sm:gap-6">
           {loopList.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className="group shrink-0 px-4 py-2.5 rounded-xl border border-slate-200/90 bg-white/90 hover:bg-white hover:border-petrol-300 shadow-2xs hover:shadow-soft transition-all duration-200 flex items-center gap-2 cursor-pointer select-none"
+              className="group shrink-0 px-4 py-2.5 rounded-full border border-pink-200 bg-white hover:border-pink-400 shadow-sm hover:shadow-soft transition-all duration-200 flex items-center gap-2 cursor-pointer select-none"
               title={`Atención odontológica con cobertura ${item.name}`}
             >
               <div className="text-charcoal-secondary group-hover:text-charcoal transition-colors opacity-80 group-hover:opacity-100 flex items-center">

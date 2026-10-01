@@ -19,36 +19,35 @@ export interface SupportStaff {
 
 export const PROFESSIONALS: Professional[] = [
   {
-    id: "dra-norma-ramirez",
-    name: "Dra. Norma S. Ramírez",
-    role: "Médica Clínica · Medicina General & Adultos",
-    license: "MP 26184 · Especialista en Clínica Médica",
+    id: "dr-rodrigo-melo",
+    name: "Dr. Rodrigo Julián Melo",
+    role: "Odontólogo · Director en Risus Dental",
+    license: "Odontología Integral · M.N. · Estética Dental",
     specialties: [
-      "Clínica Médica General",
-      "Control de Hipertensión y Diabetes",
-      "Chequeos Clínicos Preventivos",
-      "Aptos Físicos Oficiales",
-      "Valoración Preoperatoria",
-      "Atención de Adultos y Tercera Edad",
+      "Odontología General y Preventiva",
+      "Estética Dental y Diseño de Sonrisa",
+      "Blanqueamiento Dental y Carillas",
+      "Endodoncia Mecanizada",
+      "Cirugía Oral e Implantes Dentales",
+      "Atención Empática Sin Dolor (Fobia Dental)",
     ],
-    bio: "Médica clínica con sólida trayectoria y vocación de servicio en Córdoba Capital. Brinda una atención médica cálida, dedicada y personalizada, orientada a la prevención de patologías, diagnóstico temprano y seguimiento longitudinal de enfermedades crónicas.",
-    image: "/images/dra_norma_ramirez.webp",
-    badge: "Médica Clínica",
+    bio: "Odontólogo con sólida formación en odontología estética y rehabilitación oral en Buenos Aires. Su filosofía en Risus Dental es transformar la visita al dentista en una experiencia agradable, segura y transparente: sin dolor, sin juzgar y con la paciencia necesaria para cada persona.",
+    image: "/images/dr_rodrigo_melo.jpg",
+    badge: "Odontólogo Titular",
     isDirector: true,
-    branch: "Pedro Goyena 1437 & Centro Médico Las Flores",
+    branch: "Paraguay 2475, CABA",
   },
 ];
 
 export const SUPPORT_TEAM: SupportStaff[] = [
   {
-    name: "Consultorio Los Naranjos",
-    role: "Pedro Goyena 1437 · Barrio Los Naranjos",
-    description: "Atención médica programada. Turnos y consultas al teléfono fijo (0351) 465-0036 o por WhatsApp al (0351) 158-174000. Ambiente confortable y tranquilo sin demoras.",
+    name: "Consultorio Boutique Risus Dental",
+    role: "Paraguay 2475 · Recoleta / Barrio Norte, CABA",
+    description: "Ambiente cálido, moderno y relajante con temática estética pastel, música suave y aromaterapia para que tu consulta dental sea un momento de bienestar.",
   },
   {
-    name: "Centro Médico Las Flores",
-    role: "Consultas Programadas & Atención Ambulatoria",
-    description: "Atención clínica ambulatoria con turnos coordinados vía WhatsApp (+54 9 351 817-4000 / 0351 158174000). Seguimiento periódico de pacientes y controles de rutina.",
+    name: "Espacio Seguro e Inclusivo 🏳️‍🌈",
+    role: "Atención Libre de Prejuicios",
+    description: "Creemos en la odontología con respeto a la diversidad, paciencia para quienes sienten ansiedad al sillón dental y escucha activa en cada paso.",
   },
 ];
-

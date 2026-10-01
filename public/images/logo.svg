@@ -1,18 +1,52 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="256" height="256" rx="56" fill="url(#gradBg)"/>
   <defs>
-    <linearGradient id="gradBg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0B3B42"/>
-      <stop offset="100%" stop-color="#062125"/>
+    <!-- Pastel Pink to Rainbow Gradient -->
+    <linearGradient id="puffBg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF1F6"/>
+      <stop offset="50%" stop-color="#FCE7F3"/>
+      <stop offset="100%" stop-color="#F3E8FF"/>
     </linearGradient>
-    <linearGradient id="crossGrad" x1="48" y1="48" x2="208" y2="208" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38BDF8"/>
-      <stop offset="50%" stop-color="#2DD4BF"/>
+
+    <!-- Rainbow Arc Gradient -->
+    <linearGradient id="rainbowGrad" x1="40" y1="40" x2="216" y2="216" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="25%" stop-color="#EC4899"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="75%" stop-color="#38BDF8"/>
       <stop offset="100%" stop-color="#34D399"/>
     </linearGradient>
+
+    <!-- Tooth Glow Filter -->
+    <filter id="toothShadow" x="30" y="30" width="196" height="196" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#EC4899" flood-opacity="0.25"/>
+    </filter>
   </defs>
 
-  <path d="M96 48C96 41.3726 101.373 36 108 36H148C154.627 36 160 41.3726 160 48V96H208C214.627 96 220 101.373 220 108V148C220 154.627 214.627 160 208 160H160V208C160 214.627 154.627 220 148 220H108C101.373 220 96 214.627 96 208V160H48C41.3726 160 36 154.627 36 148V108C36 101.373 41.3726 96 48 96H96V48Z" fill="url(#crossGrad)"/>
+  <!-- Background rounded squircle / puff -->
+  <rect width="256" height="256" rx="64" fill="url(#puffBg)"/>
+  <rect x="2" y="2" width="252" height="252" rx="62" stroke="url(#rainbowGrad)" stroke-width="4" stroke-opacity="0.4"/>
 
-  <path d="M74 128H104L114 106L130 150L144 120L152 128H182" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rainbow Arc Crown behind tooth -->
+  <path d="M72 88C72 58 184 58 184 88" stroke="url(#rainbowGrad)" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 0"/>
+
+  <!-- Stylized Tooth Body -->
+  <g filter="url(#toothShadow)">
+    <path d="M128 58C96 58 76 74 76 106C76 130 84 154 94 186C98 198 108 206 118 200C128 194 128 168 128 168C128 168 128 194 138 200C148 206 158 198 162 186C172 154 180 130 180 106C180 74 160 58 128 58Z" 
+          fill="#FFFFFF" 
+          stroke="url(#rainbowGrad)" 
+          stroke-width="5" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Smiling mouth inside the tooth (Risus = Smile!) -->
+  <path d="M106 118C112 128 144 128 150 118" stroke="#EC4899" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Happy Sparkling Eyes -->
+  <circle cx="106" cy="100" r="4.5" fill="#A855F7"/>
+  <circle cx="150" cy="100" r="4.5" fill="#A855F7"/>
+
+  <!-- Sparkle Stars -->
+  <path d="M188 64L191 74L201 77L191 80L188 90L185 80L175 77L185 74L188 64Z" fill="#F43F5E"/>
+  <circle cx="68" cy="74" r="3.5" fill="#38BDF8"/>
+  <circle cx="196" cy="154" r="3" fill="#34D399"/>
 </svg>

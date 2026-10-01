@@ -11,6 +11,7 @@ import {
   MagnifyingGlass,
   ArrowRight,
   Info,
+  Sparkle,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -25,37 +26,37 @@ export const Coverage: React.FC = () => {
   const currentOS = OBRAS_SOCIALES.find((os) => os.id === selectedOS) || OBRAS_SOCIALES[0];
 
   const whatsappInquiryUrl = `https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(
-    `Hola Dra. Norma Ramírez, quisiera consultar la cobertura y requisitos para atenderme con mi obra social ${currentOS.name}.`
+    `Hola Dr. Rodrigo Melo, quisiera consultar opciones de pago y reintegros con mi prepaga ${currentOS.name} en Risus Dental.`
   )}`;
 
   return (
-    <section id="obras-sociales" className="py-20 bg-background border-b border-surface-muted">
+    <section id="obras-sociales" className="py-20 bg-white border-b border-pink-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mx-auto text-center mb-12">
-          <span className="text-xs font-semibold uppercase tracking-wider text-petrol-700 flex items-center justify-center gap-1.5">
-            <ShieldCheck size={16} weight="fill" className="text-petrol-600" />
-            Convenios y Obras Sociales Aceptadas
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-risus-600 flex items-center justify-center gap-1.5">
+            <ShieldCheck size={16} weight="fill" className="text-pink-500" />
+            Transparencia & Opciones de Pago
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-charcoal mt-1">
-            Atención por obras sociales, prepagas y particulares
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-charcoal mt-1">
+            Atención Particular, Prepagas & Reintegros
           </h2>
           <p className="text-sm sm:text-base text-charcoal-secondary mt-3">
-            Atendemos pacientes con las principales coberturas de Córdoba (APROSS, OSDE, Swiss Medical, Galeno, Sancor Salud, Medifé, PAMI) y consultas particulares con aranceles accesibles y factura para reintegro.
+            Atención odontológica privada y personalizada en Paraguay 2475, CABA. Emitimos factura oficial para reintegros con tu prepaga y ofrecemos planes de pago claros y accesibles.
           </p>
         </div>
 
         {/* Interactive Coverage Explorer */}
-        <div className="max-w-4xl mx-auto bg-surface rounded-3xl border border-surface-muted p-6 sm:p-8 shadow-soft">
+        <div className="max-w-4xl mx-auto bg-pink-50/40 rounded-puff border border-pink-200 p-6 sm:p-8 shadow-soft">
           {/* Search Input */}
           <div className="relative mb-6">
-            <MagnifyingGlass size={18} className="absolute left-4 top-3.5 text-charcoal-muted" />
+            <MagnifyingGlass size={18} className="absolute left-4 top-3.5 text-pink-400" />
             <input
               type="text"
-              placeholder="Buscá tu obra social o prepaga (ej. APROSS, OSDE, Swiss Medical, Medifé...)"
+              placeholder="Buscá tu prepaga u obra social (ej. OSDE, Swiss Medical, Galeno, Medifé...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-11 pr-4 py-3 rounded-xl border border-surface-muted bg-surface-subtle/50 text-sm text-charcoal focus-visible:ring-2 focus-visible:ring-petrol-600 focus-visible:outline-none transition-all"
+              className="w-full pl-11 pr-4 py-3 rounded-full border border-pink-200 bg-white text-sm text-charcoal focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:outline-none transition-all"
             />
           </div>
 
@@ -68,10 +69,10 @@ export const Coverage: React.FC = () => {
                   key={os.id}
                   type="button"
                   onClick={() => setSelectedOS(os.id)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                     isSelected
-                      ? "bg-petrol-800 text-white shadow-sm ring-2 ring-petrol-600/30"
-                      : "bg-surface-subtle text-charcoal-secondary border border-surface-muted hover:border-slate-300 hover:text-charcoal"
+                      ? "bg-gradient-to-r from-risus-500 to-purple-500 text-white shadow-md shadow-pink-500/20"
+                      : "bg-white text-charcoal-secondary border border-pink-200 hover:border-pink-300"
                   }`}
                 >
                   <span
@@ -85,20 +86,20 @@ export const Coverage: React.FC = () => {
           </div>
 
           {/* Detailed Selected Coverage Card */}
-          <div className="rounded-2xl bg-surface-subtle/60 border border-slate-200/80 p-6 sm:p-7 space-y-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-surface-muted pb-4">
+          <div className="rounded-2xl bg-white border border-pink-200 p-6 sm:p-7 space-y-5 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-pink-100 pb-4">
               <div className="flex items-center gap-3">
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-base shadow-sm"
+                  className="w-10 h-10 rounded-2xl flex items-center justify-center font-black text-white text-sm shadow-sm"
                   style={{ backgroundColor: currentOS.color }}
                 >
                   {currentOS.name.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-charcoal">{currentOS.name}</h3>
-                  <span className="text-xs text-emerald-700 font-medium flex items-center gap-1">
+                  <h3 className="text-lg font-black text-charcoal">{currentOS.name}</h3>
+                  <span className="text-xs text-emerald-600 font-bold flex items-center gap-1">
                     <CheckCircle size={14} weight="fill" />
-                    Atención médica con turno programado
+                    <span>Factura oficial para gestión de reintegro</span>
                   </span>
                 </div>
               </div>
@@ -107,48 +108,38 @@ export const Coverage: React.FC = () => {
                 href={whatsappInquiryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition-all"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold shadow-sm transition-all"
               >
                 <WhatsappLogo size={16} weight="fill" />
                 <span>Consultar por WhatsApp</span>
-                <ArrowRight size={13} />
               </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-              <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
-                <span className="font-semibold text-charcoal block mb-1">
-                  Consulta Médica Clínica
-                </span>
-                <p className="text-charcoal-muted leading-relaxed">
-                  Examen clínico general, control de presión arterial, glucemia, evaluación de síntomas agudos y seguimiento de patologías crónicas.
-                </p>
+            {/* Info details */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-charcoal-muted">
+              <div className="flex items-start gap-2">
+                <FileText size={16} className="text-pink-500 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-charcoal block mb-0.5">Comprobante Oficial:</strong>
+                  Emisión de factura electrónica detallada por cada prestación odontológica.
+                </div>
               </div>
 
-              <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
-                <span className="font-semibold text-charcoal block mb-1">
-                  Estudios & Recetarios Oficiales
-                </span>
-                <p className="text-charcoal-muted leading-relaxed">
-                  Solicitud de análisis de laboratorio, electrocardiograma, ecografías y prescripción de medicamentos con recetario oficial.
-                </p>
+              <div className="flex items-start gap-2">
+                <CreditCard size={16} className="text-purple-500 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-charcoal block mb-0.5">Medios de Pago:</strong>
+                  Efectivo, transferencia bancaria, tarjetas de débito y crédito, y Mercado Pago.
+                </div>
               </div>
 
-              <div className="p-3.5 bg-surface rounded-xl border border-surface-muted">
-                <span className="font-semibold text-charcoal block mb-1">
-                  Documentación para la Consulta
-                </span>
-                <p className="text-charcoal-muted leading-relaxed">
-                  DNI + credencial física o digital en el celular. Para consultas particulares emitimos factura para reintegro inmediato.
-                </p>
+              <div className="flex items-start gap-2">
+                <Sparkle size={16} className="text-amber-500 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-charcoal block mb-0.5">Financiación en Cuotas:</strong>
+                  Planes de pago para tratamientos de estética, ortodoncia invisible e implantes.
+                </div>
               </div>
-            </div>
-
-            <div className="pt-2 flex items-center gap-2 text-[11px] text-charcoal-muted">
-              <Info size={14} className="text-petrol-600 shrink-0" />
-              <span>
-                ¿Dudas sobre aranceles o autorizaciones previas? Escribinos por WhatsApp al (0351) 158-174000 y te asesoramos al instante.
-              </span>
             </div>
           </div>
         </div>
@@ -156,5 +147,3 @@ export const Coverage: React.FC = () => {
     </section>
   );
 };
-
-

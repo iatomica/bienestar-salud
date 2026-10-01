@@ -3,16 +3,15 @@ import { clinicConfig } from "@/config/clinic";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `${clinicConfig.name} · Médica Clínica | Córdoba Capital`,
-  description: `${clinicConfig.descriptor}. Consultorio en Pedro Goyena 1437 (Barrio Los Naranjos) y Centro Médico Las Flores. Turnos WhatsApp al (0351) 158-174000 y teléfono al (0351) 465-0036.`,
+  title: `${clinicConfig.name} - ODONTOLOGÍA · Dr. Rodrigo Julián Melo | Recoleta, CABA`,
+  description: `${clinicConfig.descriptor}. Consultorio en Paraguay 2475, Recoleta / Barrio Norte. Odontología estética, carillas, blanqueamiento, implantes y endodoncia sin dolor. 5 estrellas en Google (212 reseñas). WhatsApp: 11 2395-3349.`,
   openGraph: {
-    title: `${clinicConfig.name} · Médica Clínica en Córdoba`,
-    description: "Atención médica integral para jóvenes y adultos. Chequeos clínicos, control de presión arterial, diabetes y aptos físicos en Barrio Los Naranjos y Centro Médico Las Flores.",
+    title: `${clinicConfig.name} - ODONTOLOGÍA · Dr. Rodrigo Julián Melo`,
+    description: "Somos un consultorio odontológico privado dedicado a tu bienestar y salud bucal. Atención personalizada, basada en el respeto, la paciencia y empatía. Paraguay 2475, CABA.",
     locale: "es_AR",
     type: "website",
   },
 };
-
 
 export default function RootLayout({
   children,
