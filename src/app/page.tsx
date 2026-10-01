@@ -4,12 +4,8 @@ import React, { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { ObrasSocialesMarquee } from "@/components/home/ObrasSocialesMarquee";
 import { Specialties } from "@/components/home/Specialties";
-import { ClinicExperience } from "@/components/home/ClinicExperience";
 import { Professionals } from "@/components/home/Professionals";
-import { Coverage } from "@/components/home/Coverage";
-import { CareFlow } from "@/components/home/CareFlow";
 import { TrustAndFAQ } from "@/components/home/TrustAndFAQ";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { BookingModal } from "@/components/booking/BookingModal";
@@ -18,70 +14,51 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 export default function HomePage() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [targetSpecialtyId, setTargetSpecialtyId] = useState<string | null>(null);
-  const [targetProfessionalId, setTargetProfessionalId] = useState<string | null>(null);
 
-  const handleOpenBooking = (specialtyId?: string, professionalId?: string) => {
+  const handleOpenBooking = (specialtyId?: string) => {
     setTargetSpecialtyId(specialtyId || null);
-    setTargetProfessionalId(professionalId || null);
     setBookingOpen(true);
   };
 
   const handleCloseBooking = () => {
     setBookingOpen(false);
     setTargetSpecialtyId(null);
-    setTargetProfessionalId(null);
   };
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* 1. Header / Navbar matching mockup */}
       <Header onOpenBooking={() => handleOpenBooking()} />
 
       <main className="flex-1">
-        {/* Banner-style Hero */}
+        {/* 2. Hero Section with Dr. Rodrigo Julian Melo and clinic visual */}
         <Hero onOpenBooking={() => handleOpenBooking()} />
 
-        {/* Subtle infinite marquee with 14 Obras Sociales logos */}
-        <ObrasSocialesMarquee />
-
-        {/* Dental Specialties */}
+        {/* 3. Nuestros Servicios: 6 Vibrant Gradient Cards with 3D Icons */}
         <Specialties
-          onSelectSpecialty={(specId) => handleOpenBooking(specId, undefined)}
+          onSelectSpecialty={(specId) => handleOpenBooking(specId)}
         />
 
-        {/* High-tech 3D scanning & in-house lab */}
-        <ClinicExperience />
+        {/* 4. Sobre Mí: Dr. Rodrigo Melo in circular pink neon halo + manifesto & 4 highlights */}
+        <Professionals />
 
-        {/* Doctor and staff team */}
-        <Professionals
-          onSelectProfessional={(profId) => handleOpenBooking(undefined, profId)}
-        />
-
-        {/* 14 Obras Sociales interactive explorer */}
-        <Coverage />
-
-        {/* Step by step patient journey */}
-        <CareFlow />
-
-        {/* Operational trust & FAQ */}
+        {/* 5. Reseñas: 5 Stars Google Badge & 3 Patient Reviews */}
         <TrustAndFAQ />
 
-        {/* Final banner CTA */}
+        {/* 6. Visítanos: Tooth with Heart & 3 Contact Rows (Dirección, WhatsApp, Instagram) */}
         <FinalCTA onOpenBooking={() => handleOpenBooking()} />
       </main>
 
+      {/* 7. Footer matching mockup */}
       <Footer />
 
-      {/* WhatsApp Booking Coordinator Modal */}
+      {/* Interactive Booking Modal & Floating WhatsApp */}
       <BookingModal
         isOpen={bookingOpen}
         onClose={handleCloseBooking}
         initialSpecialtyId={targetSpecialtyId}
-        initialProfessionalId={targetProfessionalId}
       />
-
-      {/* Floating WhatsApp Action Button */}
       <FloatingWhatsApp />
-    </>
+    </div>
   );
 }
-

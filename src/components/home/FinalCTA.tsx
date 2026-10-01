@@ -1,16 +1,12 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
-  WhatsappLogo,
-  Check,
   MapPin,
-  ArrowRight,
-  Sparkle,
-  CalendarCheck,
-  Star,
-  Heart,
+  WhatsappLogo,
   InstagramLogo,
+  ArrowUpRight,
 } from "@phosphor-icons/react";
 import { clinicConfig } from "@/config/clinic";
 
@@ -19,74 +15,123 @@ export interface FinalCTAProps {
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking }) => {
+  const whatsappUrl = `https://wa.me/${clinicConfig.whatsapp}?text=${encodeURIComponent(
+    "Hola Dr. Rodrigo Melo / Risus Dental, quisiera reservar un turno odontológico en Paraguay 2475."
+  )}`;
+
   return (
-    <section className="py-20 bg-gradient-to-br from-pink-600 via-purple-600 to-sky-500 text-white relative overflow-hidden">
-      {/* Decorative rainbow puff lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 left-10 w-80 h-80 bg-pink-300/20 rounded-full blur-3xl pointer-events-none" />
+    <section id="contacto" className="py-16 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-gray-50 via-pink-50/20 to-sky-50/30 border border-gray-200/90 rounded-3xl p-8 sm:p-12 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Heading and description matching mockup */}
+            <div className="lg:col-span-5 space-y-3">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff2d75]">
+                VISÍTANOS
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#0b192c] leading-tight flex items-center gap-2">
+                <span>Tu próxima sonrisa empieza acá</span>
+                <span className="text-[#ff2d75]">✨</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-sm">
+                Estamos en el corazón de Buenos Aires. Escribinos por WhatsApp o
+                seguinos en Instagram.
+              </p>
+            </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md border border-white/25">
-          <Sparkle size={13} weight="fill" />
-          <span>Risus Dental · Dr. Rodrigo Julián Melo</span>
-        </span>
+            {/* Center Column: 3D Tooth with Pink Heart matching mockup */}
+            <div className="lg:col-span-3 flex justify-center py-2">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 drop-shadow-xl hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/images/mockup/tooth_heart_clean.png"
+                  alt="Risus Dental Sonrisa"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
 
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-          Tu sonrisa más libre, sana y cuidada <br className="hidden sm:inline" />
-          con empatía y sin dolor te espera.
-        </h2>
+            {/* Right Column: 3 Contact Rows matching mockup */}
+            <div className="lg:col-span-4 space-y-3.5">
+              {/* Row 1: Dirección */}
+              <a
+                href="https://maps.google.com/?q=Paraguay+2475,+Cdad.+Autonoma+de+Buenos+Aires"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 hover:border-sky-300 hover:shadow-sm transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <MapPin size={20} weight="fill" />
+                  </div>
+                  <div className="text-left">
+                    <span className="block text-xs font-bold text-gray-800">
+                      Dirección:
+                    </span>
+                    <span className="block text-xs text-gray-600">
+                      Paraguay 2475, Cdad. Autónoma de Buenos Aires
+                    </span>
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={16}
+                  className="text-gray-400 group-hover:text-sky-500 transition-colors shrink-0 ml-2"
+                />
+              </a>
 
-        <p className="text-sm sm:text-base text-pink-100 max-w-2xl mx-auto leading-relaxed font-medium">
-          Coordiná tu visita hoy mismo por WhatsApp al <strong className="text-white">11 2395-3349</strong>. Te esperamos en nuestro consultorio privado de Paraguay 2475, Recoleta / CABA.
-        </p>
+              {/* Row 2: WhatsApp */}
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-sm transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <WhatsappLogo size={20} weight="fill" />
+                  </div>
+                  <div className="text-left">
+                    <span className="block text-xs font-bold text-gray-800">
+                      WhatsApp:
+                    </span>
+                    <span className="block text-xs text-gray-600">
+                      11 2395-3349
+                    </span>
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={16}
+                  className="text-gray-400 group-hover:text-emerald-500 transition-colors shrink-0 ml-2"
+                />
+              </a>
 
-        {/* Action Buttons */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={clinicConfig.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-emerald-400 hover:bg-emerald-300 text-charcoal font-black text-base shadow-2xl transition-all hover:scale-[1.03]"
-          >
-            <WhatsappLogo size={24} weight="fill" className="text-charcoal" />
-            <span>Hablar por WhatsApp (11 2395-3349)</span>
-          </a>
-
-          <button
-            onClick={onOpenBooking}
-            className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold text-sm border-2 border-white/30 backdrop-blur-md transition-all hover:scale-[1.02]"
-          >
-            <CalendarCheck size={18} />
-            <span>Agendar Consulta Online</span>
-          </button>
-        </div>
-
-        {/* Location & Reviews Badges */}
-        <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/90">
-          <a
-            href={clinicConfig.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <MapPin size={16} weight="bold" />
-            <span>Paraguay 2475, CABA (Recoleta / Barrio Norte)</span>
-          </a>
-
-          <div className="flex items-center gap-1.5 text-amber-300 font-bold">
-            <Star size={14} weight="fill" />
-            <span>5.0 en Google (212 Reseñas)</span>
+              {/* Row 3: Instagram */}
+              <a
+                href="https://www.instagram.com/risusdental"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 hover:border-pink-300 hover:shadow-sm transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <InstagramLogo size={20} weight="bold" />
+                  </div>
+                  <div className="text-left">
+                    <span className="block text-xs font-bold text-gray-800">
+                      Instagram:
+                    </span>
+                    <span className="block text-xs text-gray-600">
+                      @risusdental · instagram.com/risusdental
+                    </span>
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={16}
+                  className="text-gray-400 group-hover:text-[#ff2d75] transition-colors shrink-0 ml-2"
+                />
+              </a>
+            </div>
           </div>
-
-          <a
-            href={clinicConfig.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <InstagramLogo size={16} weight="bold" />
-            <span>@risusdental</span>
-          </a>
         </div>
       </div>
     </section>

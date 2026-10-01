@@ -1,144 +1,148 @@
 "use client";
 
-import React, { useState } from "react";
-import { SPECIALTIES } from "@/data/specialties";
-import {
-  WhatsappLogo,
-  CheckCircle,
-  Sparkle,
-  ArrowRight,
-  UserCheck,
-  Star,
-  Heart,
-} from "@phosphor-icons/react";
-import { clinicConfig } from "@/config/clinic";
+import React from "react";
+import Image from "next/image";
+import { ArrowRight } from "@phosphor-icons/react";
 
 export interface SpecialtiesProps {
   onSelectSpecialty: (specialtyId: string) => void;
 }
 
-export const Specialties: React.FC<SpecialtiesProps> = ({ onSelectSpecialty }) => {
-  const [selectedFilter, setSelectedFilter] = useState<string>("all");
-
-  const filteredSpecialties = SPECIALTIES.filter((s) => {
-    if (selectedFilter === "featured") return s.featured;
-    return true;
-  });
+export const Specialties: React.FC<SpecialtiesProps> = ({
+  onSelectSpecialty,
+}) => {
+  const services = [
+    {
+      id: "odontologia-general",
+      title: "Odontología general",
+      description:
+        "Prevención, diagnóstico y tratamientos integrales para una sonrisa sana.",
+      gradient: "from-[#ff3868] to-[#ff2256]",
+      arrowColor: "text-[#ff2d75]",
+      icon: "/images/mockup/service_1_general.png",
+    },
+    {
+      id: "atencion-integral",
+      title: "Atención integral",
+      description: "Cuidado completo en todas las etapas de tu vida.",
+      gradient: "from-[#00bbf0] to-[#0092cf]",
+      arrowColor: "text-[#0092cf]",
+      icon: "/images/mockup/service_2_integral.png",
+    },
+    {
+      id: "estetica-dental",
+      title: "Estética dental",
+      description:
+        "Carillas, blanqueamiento y tratamientos estéticos para una sonrisa única.",
+      gradient: "from-[#ff8fa3] to-[#ff758f]",
+      arrowColor: "text-[#ff758f]",
+      icon: "/images/mockup/service_3_estetica.png",
+    },
+    {
+      id: "implantes-dentales",
+      title: "Implantes dentales",
+      description:
+        "Soluciones duraderas para recuperar tu sonrisa y funcionalidad.",
+      gradient: "from-[#a29bfe] to-[#8075ea]",
+      arrowColor: "text-[#8075ea]",
+      icon: "/images/mockup/service_4_implantes.png",
+    },
+    {
+      id: "ortodoncia",
+      title: "Ortodoncia",
+      description:
+        "Tratamientos modernos y personalizados para todas las edades.",
+      gradient: "from-[#ff3377] to-[#e61e60]",
+      arrowColor: "text-[#e61e60]",
+      icon: "/images/mockup/service_5_ortodoncia.png",
+    },
+    {
+      id: "limpieza-dental",
+      title: "Limpieza dental",
+      description:
+        "Prevención y salud bucal con una limpieza profesional.",
+      gradient: "from-[#38c8f8] to-[#02a9ea]",
+      arrowColor: "text-[#02a9ea]",
+      icon: "/images/mockup/service_6_limpieza.png",
+    },
+  ];
 
   return (
-    <section id="especialidades" className="py-20 bg-[#fffbfc] border-b border-pink-100 relative">
+    <section id="servicios" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-risus-600 flex items-center gap-1.5">
-              <Sparkle size={14} weight="fill" className="text-pink-500 animate-pulse" />
-              Tratamientos & Procedimientos Odontológicos
+        {/* Section Header matching mockup */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div className="max-w-xl space-y-2">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff2d75]">
+              NUESTROS SERVICIOS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-charcoal mt-1">
-              Cuidado Dental Completo: Desde Estética hasta Alta Complejidad
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#0b192c] leading-tight">
+              Odontología completa <br className="hidden sm:block" />
+              para cada etapa de tu vida
             </h2>
-            <p className="text-sm sm:text-base text-charcoal-secondary mt-3 leading-relaxed">
-              En Risus Dental brindamos soluciones integrales adaptadas a tus tiempos. Desde blanqueamientos y carillas hasta endodoncias mecanizadas e implantes, siempre con una atención humana, paciente y sin dolor.
-            </p>
           </div>
 
-          {/* Quick Filter Pills */}
-          <div className="flex items-center gap-2">
+          <div className="max-w-md space-y-4 lg:text-right">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Desde la prevención hasta los tratamientos más complejos, te
+              acompañamos con una atención personalizada, tecnología moderna y
+              un enfoque humano.
+            </p>
             <button
-              type="button"
-              onClick={() => setSelectedFilter("all")}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedFilter === "all"
-                  ? "bg-gradient-to-r from-risus-500 to-purple-500 text-white shadow-md shadow-pink-500/20"
-                  : "bg-white text-charcoal-secondary border border-pink-200 hover:border-pink-300"
-              }`}
+              onClick={() => onSelectSpecialty("general")}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0b192c] hover:text-[#ff2d75] transition-colors border border-gray-200 px-4 py-2 rounded-full hover:border-[#ff2d75]"
             >
-              Todos los tratamientos ({SPECIALTIES.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setSelectedFilter("featured")}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
-                selectedFilter === "featured"
-                  ? "bg-gradient-to-r from-risus-500 to-purple-500 text-white shadow-md shadow-pink-500/20"
-                  : "bg-white text-charcoal-secondary border border-pink-200 hover:border-pink-300"
-              }`}
-            >
-              Principales
+              <span>Conocé todos los servicios</span>
+              <ArrowRight size={14} weight="bold" />
             </button>
           </div>
         </div>
 
-        {/* Specialties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSpecialties.map((spec) => {
-            const whatsappText = `Hola Dr. Rodrigo Melo, quisiera consultar o pedir turno para ${spec.name} en Risus Dental.`;
-            const whatsappLink = `https://wa.me/${clinicConfig.whatsappClean}?text=${encodeURIComponent(whatsappText)}`;
+        {/* 6 Vibrant Cards Grid matching mockup */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              onClick={() => onSelectSpecialty(service.id)}
+              className={`bg-gradient-to-b ${service.gradient} rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col justify-between text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5 cursor-pointer group relative overflow-hidden`}
+            >
+              {/* Subtle light reflection overlay */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl pointer-events-none" />
 
-            return (
-              <div
-                key={spec.id}
-                className={`bg-white rounded-puff border transition-all duration-300 hover:shadow-puff flex flex-col justify-between group p-6 sm:p-7 relative ${
-                  spec.featured
-                    ? "border-pink-200 shadow-soft"
-                    : "border-pink-100 hover:border-pink-200"
-                }`}
-              >
-                <div>
-                  {/* Top Badge & Lead Doctor */}
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-pink-50 text-risus-600 border border-pink-200 flex items-center gap-1">
-                      <UserCheck size={13} weight="bold" />
-                      {spec.leadDoctor}
-                    </span>
-                    {spec.featured && (
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-sm">
-                        Destacado
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Title & Short Desc */}
-                  <h3 className="text-lg sm:text-xl font-black text-charcoal tracking-tight group-hover:text-risus-600 transition-colors leading-snug">
-                    {spec.name}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm font-semibold text-purple-900/80 mt-1.5">
-                    {spec.shortDesc}
-                  </p>
-
-                  <p className="text-xs text-charcoal-muted mt-3 leading-relaxed">
-                    {spec.fullDesc}
-                  </p>
-
-                  {/* Key Benefits List */}
-                  <div className="mt-4 pt-4 border-t border-pink-100 space-y-2">
-                    {spec.benefits.map((b, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-charcoal-secondary">
-                        <CheckCircle size={14} weight="fill" className="text-pink-500 shrink-0" />
-                        <span>{b}</span>
-                      </div>
-                    ))}
-                  </div>
+              <div>
+                {/* 3D Icon */}
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 flex items-center justify-center">
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    fill
+                    className="object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md"
+                  />
                 </div>
 
-                {/* Direct WhatsApp Consultation Button */}
-                <div className="mt-6 pt-4 border-t border-pink-50">
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-pink-50 hover:bg-emerald-500 text-risus-700 hover:text-white border border-pink-200 hover:border-emerald-500 font-bold text-xs transition-all shadow-sm group-hover:bg-emerald-500 group-hover:text-white"
-                  >
-                    <WhatsappLogo size={16} weight="fill" className="text-emerald-500 group-hover:text-white transition-colors" />
-                    <span>Consultar por WhatsApp</span>
-                    <ArrowRight size={13} className="ml-auto opacity-70" />
-                  </a>
+                {/* Title */}
+                <h3 className="text-sm sm:text-base font-bold text-white text-center leading-snug">
+                  {service.title}
+                </h3>
+
+                {/* Subtitle / Description */}
+                <p className="text-[11px] sm:text-xs text-white/90 text-center mt-2 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Bottom White Circle with Arrow */}
+              <div className="pt-4 flex justify-center">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200">
+                  <ArrowRight
+                    size={14}
+                    weight="bold"
+                    className={service.arrowColor}
+                  />
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

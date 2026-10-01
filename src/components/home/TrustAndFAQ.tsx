@@ -1,181 +1,214 @@
 "use client";
 
 import React, { useState } from "react";
-import { faqData } from "@/data/faq";
+import Image from "next/image";
 import {
+  Star,
+  ArrowRight,
   CaretDown,
   CheckCircle,
-  ShieldCheck,
-  CalendarBlank,
-  WhatsappLogo,
-  MapPin,
-  Star,
-  Heart,
-  InstagramLogo,
 } from "@phosphor-icons/react";
-import { clinicConfig } from "@/config/clinic";
+import { faqData } from "@/data/faq";
 
 export const TrustAndFAQ: React.FC = () => {
+  const [showFaq, setShowFaq] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const trustSignals = [
+  const reviews = [
     {
-      title: "5.0 ★ en 212 Reseñas Google",
-      description: "Pacientes reales que recomiendan nuestra atención, puntualidad y la calidez en cada procedimiento.",
-      icon: Star,
-      color: "text-amber-500",
-      bg: "bg-amber-50",
-      border: "border-amber-200",
+      author: "María Fernanda G.",
+      time: "Hace 2 semanas",
+      text: "Excelente atención. El Dr. Rodrigo es muy profesional, explica todo con paciencia y te hace sentir súper tranquilo. El consultorio es hermoso y moderno.",
+      avatarBg: "bg-pink-100 text-pink-700",
+      initials: "MF",
     },
     {
-      title: "Odontología Sin Dolor & Con Empatía",
-      description: "Tiempos respetados para cada persona. Cuidamos a quienes sienten fobia o miedo al dentista.",
-      icon: Heart,
-      color: "text-pink-500",
-      bg: "bg-pink-50",
-      border: "border-pink-200",
+      author: "Lucas M.",
+      time: "Hace 1 mes",
+      text: "¡Un genio! Me hice limpieza y blanqueamiento y los resultados fueron increíbles. La atención es cálida y súper profesional.",
+      avatarBg: "bg-sky-100 text-sky-700",
+      initials: "LM",
     },
     {
-      title: "Paraguay 2475, CABA",
-      description: "Consultorio privado en Recoleta / Barrio Norte, de fácil acceso y transporte cómodo.",
-      icon: MapPin,
-      color: "text-purple-500",
-      bg: "bg-purple-50",
-      border: "border-purple-200",
-    },
-    {
-      title: "WhatsApp Directo 11 2395-3349",
-      description: "Coordinación rápida sin intermediarios molestos, recordatorios de turno y seguimiento post.",
-      icon: WhatsappLogo,
-      color: "text-emerald-500",
-      bg: "bg-emerald-50",
-      border: "border-emerald-200",
+      author: "Valentina R.",
+      time: "Hace 3 semanas",
+      text: "Siempre tuve miedo al dentista y acá la experiencia fue totalmente diferente. Te escuchan, te explican y todo el equipo es un amor. Súper recomendado.",
+      avatarBg: "bg-purple-100 text-purple-700",
+      initials: "VR",
     },
   ];
 
   return (
-    <section id="faq" className="py-20 bg-white border-b border-pink-100">
+    <section id="resenas" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Trust Signals Block */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-risus-600">
-              Garantía de Confianza & Calidez
+        {/* Header matching mockup */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-12">
+          <div className="space-y-2">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ff2d75]">
+              RESEÑAS
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-charcoal mt-1">
-              ¿Por qué elegir Risus Dental?
+            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#0b192c] leading-tight flex items-center gap-2">
+              <span>La confianza de nuestros pacientes nos impulsa a seguir</span>
+              <span className="text-[#ff2d75]">✨</span>
             </h2>
-            <p className="text-xs sm:text-sm text-charcoal-muted mt-2">
-              Pilares que convierten tu consulta con el Dr. Rodrigo Melo en una experiencia confortable y positiva.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {trustSignals.map((signal) => {
-              const Icon = signal.icon;
-              return (
-                <div
-                  key={signal.title}
-                  className={`p-6 rounded-puff bg-white border ${signal.border} shadow-soft hover:shadow-puff transition-all duration-200 flex flex-col justify-between`}
-                >
-                  <div>
-                    <div className={`w-10 h-10 rounded-2xl ${signal.bg} ${signal.color} flex items-center justify-center mb-3 shadow-sm`}>
-                      <Icon size={20} weight="fill" />
-                    </div>
-                    <h3 className="text-sm font-black text-charcoal">{signal.title}</h3>
-                    <p className="text-xs text-charcoal-muted mt-1.5 leading-relaxed">
-                      {signal.description}
-                    </p>
-                  </div>
+          {/* Google Reviews Badge matching mockup */}
+          <div className="flex items-center gap-4 bg-gray-50 border border-gray-200/80 rounded-2xl px-5 py-3 shadow-sm shrink-0">
+            {/* Google Logo SVG */}
+            <svg className="w-8 h-8 shrink-0" viewBox="0 0 24 24">
+              <path
+                fill="#4285F4"
+                d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.15z"
+              />
+              <path
+                fill="#34A853"
+                d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z"
+              />
+              <path
+                fill="#EA4335"
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+              />
+            </svg>
+
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5">
+                <span className="text-sm font-black text-[#0b192c]">
+                  5 estrellas
+                </span>
+                <div className="flex text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} weight="fill" />
+                  ))}
                 </div>
-              );
-            })}
+              </div>
+              <p className="text-xs text-gray-500 font-medium">
+                212 reseñas en Google
+              </p>
+            </div>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Risus+Dental+Paraguay+2475+Buenos+Aires"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1 text-xs font-bold text-[#0b192c] hover:text-[#ff2d75] border-l border-gray-200 pl-4 py-1"
+            >
+              <span>Ver todas</span>
+              <ArrowRight size={12} weight="bold" />
+            </a>
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div id="opiniones" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-risus-600">
-              Preguntas Habituales
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-charcoal leading-tight">
-              Todo lo que necesitás saber antes de tu consulta
-            </h3>
-            <p className="text-xs sm:text-sm text-charcoal-secondary leading-relaxed">
-              Encontrá respuestas sobre turnos, estética dental, tratamientos complejos y formas de pago en nuestro consultorio de Paraguay 2475, CABA.
-            </p>
-
-            {/* Google Rating Box */}
-            <div className="pt-4 p-5 rounded-puff bg-gradient-to-br from-pink-50 via-purple-50 to-sky-50 border border-pink-200 space-y-3">
-              <div className="flex items-center gap-2">
-                <div className="flex text-amber-400">
-                  <Star size={16} weight="fill" />
-                  <Star size={16} weight="fill" />
-                  <Star size={16} weight="fill" />
-                  <Star size={16} weight="fill" />
-                  <Star size={16} weight="fill" />
+        {/* 3 Patient Review Cards matching mockup */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {reviews.map((rev, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-gray-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative group"
+            >
+              <div>
+                {/* 5 Stars */}
+                <div className="flex text-amber-400 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} weight="fill" />
+                  ))}
                 </div>
-                <span className="text-sm font-black text-charcoal">5.0 / 5.0 en Google</span>
+
+                {/* Review Text */}
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                  &ldquo;{rev.text}&rdquo;
+                </p>
               </div>
-              <p className="text-xs text-charcoal-secondary leading-relaxed font-medium">
-                Más de 212 pacientes destacan el trato respetuoso, el ambiente libre de prejuicios y la excelencia en estética y endodoncia del Dr. Rodrigo Melo.
-              </p>
-              <div className="pt-2 border-t border-pink-200/60 flex items-center justify-between text-xs">
-                <a
-                  href={clinicConfig.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-risus-600 hover:text-risus-700 flex items-center gap-1"
-                >
-                  <InstagramLogo size={14} weight="bold" />
-                  <span>Ver fotos en Instagram</span>
-                </a>
-                <span className="text-charcoal-muted">@risusdental</span>
+
+              {/* Author & Google Logo */}
+              <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-4">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`w-9 h-9 rounded-full ${rev.avatarBg} font-black text-xs flex items-center justify-center shadow-inner`}
+                  >
+                    {rev.initials}
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-[#0b192c]">
+                      {rev.author}
+                    </h4>
+                    <p className="text-[11px] text-gray-400">{rev.time}</p>
+                  </div>
+                </div>
+
+                {/* Tiny Google Icon */}
+                <svg className="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24">
+                  <path
+                    fill="#4285F4"
+                    d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.15z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+                  />
+                </svg>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Accordion Column */}
-          <div className="lg:col-span-7 space-y-3">
-            {faqData.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
+        {/* Optional Collapsible FAQ Toggle */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={() => setShowFaq(!showFaq)}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-500 hover:text-[#ff2d75] transition-colors py-2 px-4 rounded-full border border-gray-200 hover:border-pink-200"
+          >
+            <span>{showFaq ? "Ocultar preguntas frecuentes" : "¿Tenés dudas? Ver preguntas frecuentes"}</span>
+            <CaretDown
+              size={14}
+              className={`transform transition-transform ${showFaq ? "rotate-180" : ""}`}
+            />
+          </button>
+
+          {showFaq && (
+            <div className="max-w-3xl mx-auto mt-6 space-y-3 text-left">
+              {faqData.map((faq, index) => (
                 <div
                   key={index}
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                    isOpen
-                      ? "border-pink-300 bg-pink-50/30 shadow-soft"
-                      : "border-pink-100 bg-white hover:border-pink-200"
-                  }`}
+                  className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50/50"
                 >
                   <button
-                    type="button"
                     onClick={() => toggleFAQ(index)}
-                    className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-bold text-sm text-charcoal focus:outline-none"
+                    className="w-full p-4 flex items-center justify-between text-left font-bold text-xs sm:text-sm text-[#0b192c]"
                   >
                     <span>{faq.question}</span>
                     <CaretDown
-                      size={18}
-                      className={`text-risus-500 transition-transform duration-200 shrink-0 ${
-                        isOpen ? "rotate-180 text-risus-600" : ""
+                      size={14}
+                      className={`shrink-0 transition-transform ${
+                        openIndex === index ? "rotate-180 text-[#ff2d75]" : ""
                       }`}
                     />
                   </button>
-
-                  {isOpen && (
-                    <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-charcoal-secondary leading-relaxed border-t border-pink-100/60">
+                  {openIndex === index && (
+                    <div className="px-4 pb-4 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
                       {faq.answer}
                     </div>
                   )}
                 </div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
