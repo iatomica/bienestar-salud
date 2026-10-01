@@ -7,11 +7,7 @@ import {
   List,
   X,
   ArrowRight,
-  WhatsappLogo,
-  InstagramLogo,
-  MapPin,
 } from "@phosphor-icons/react";
-import { clinicConfig } from "@/config/clinic";
 
 export interface HeaderProps {
   onOpenBooking: () => void;
@@ -20,6 +16,7 @@ export interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeNav, setActiveNav] = useState("Inicio");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +36,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md ${
+      className={`sticky top-0 z-50 transition-all duration-300 bg-white ${
         isScrolled
-          ? "shadow-sm border-b border-gray-100 py-3"
-          : "border-b border-gray-100/70 py-4"
+          ? "shadow-md py-3 rounded-b-2xl border-b border-gray-100"
+          : "shadow-sm py-3.5 rounded-b-[24px]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="#inicio" className="flex items-center gap-2 group">
-            <div className="relative h-10 w-44">
+            <div className="relative h-11 w-48">
               <Image
                 src="/images/logo.svg"
                 alt="Risus Dental - Odontología"
@@ -60,24 +57,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             </div>
           </Link>
 
-          {/* Center Navigation Links */}
+          {/* Center Navigation Links matching mockup */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm font-semibold text-gray-700 hover:text-[#ff2d75] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeNav === link.label;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setActiveNav(link.label)}
+                  className={`text-sm font-semibold transition-colors relative py-1 ${
+                    isActive
+                      ? "text-[#0070ba] font-bold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-[#0070ba] after:rounded-full"
+                      : "text-gray-700 hover:text-[#ff2d75]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right Action Button */}
+          {/* Right Action Button matching mockup */}
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenBooking}
-              className="bg-[#ff2d75] hover:bg-[#e61b63] text-white text-sm font-bold px-6 py-2.5 rounded-full transition-all duration-200 transform hover:scale-[1.02] shadow-md shadow-pink-500/25 flex items-center gap-1.5"
+              className="bg-[#ff2d75] hover:bg-[#e61b63] text-white text-sm font-bold px-7 py-2.5 rounded-full transition-all duration-200 transform hover:scale-[1.02] shadow-md shadow-pink-500/25 flex items-center gap-2"
             >
               <span>Reservar turno</span>
               <ArrowRight size={16} weight="bold" />
@@ -88,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={onOpenBooking}
-              className="bg-[#ff2d75] text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1"
+              className="bg-[#ff2d75] text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm"
             >
               <span>Turno</span>
               <ArrowRight size={12} weight="bold" />
@@ -110,8 +115,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <Link
                 key={link.label}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-gray-800 hover:bg-pink-50 hover:text-[#ff2d75]"
+                onClick={() => {
+                  setActiveNav(link.label);
+                  setMobileMenuOpen(false);
+                }}
+                className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                  activeNav === link.label
+                    ? "text-[#0070ba] font-bold bg-sky-50"
+                    : "text-gray-800 hover:bg-pink-50 hover:text-[#ff2d75]"
+                }`}
               >
                 {link.label}
               </Link>
